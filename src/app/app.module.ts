@@ -6,6 +6,7 @@ import { AppComponent } from "./app.component";
 import { HomeComponent } from "./core/components/home/home.component";
 import { ComicsComponent } from "./features/pages/comics/comics.component";
 import { CharactersComponent } from "./features/pages/characters/characters.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { CharactersComponent } from "./features/pages/characters/characters.comp
     ComicsComponent,
     CharactersComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

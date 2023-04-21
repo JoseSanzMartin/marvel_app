@@ -16,7 +16,6 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "@typescript-eslint/no-namespace": "off",
-    "quotes": ["error", "double"],
     "semi": ["error", "always"],
     "@typescript-eslint/no-explicit-any": [
       "error",
