@@ -9,19 +9,16 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { ApiHashInterceptor } from "./core/interceptors/api-hash.interceptor";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiHashInterceptor, multi: true },
-
   ],
   bootstrap: [AppComponent],
 })
