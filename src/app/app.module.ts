@@ -3,26 +3,26 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { HomeComponent } from "./core/components/home/home.component";
-import { ComicsComponent } from "./features/pages/comics/comics.component";
-import { CharactersComponent } from "./features/pages/characters/characters.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CoreModule } from "./core/core.module";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { ApiHashInterceptor } from "./core/interceptors/api-hash.interceptor";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ComicsComponent,
-    CharactersComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ApiHashInterceptor, multi: true },
+
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
