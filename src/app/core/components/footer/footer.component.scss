@@ -5,64 +5,78 @@
   padding: 20px;
   margin-top: auto;
 }
+
 .main-footer__content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .main-footer__links {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .main-footer_primary-links,
 .main-footer_secondary-links {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 }
+
 .main-footer__follow {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .footer__social {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .footer__social__img {
   margin-right: 10px;
 }
+
 .footer__social__img:last-child {
   margin-right: 0;
 }
+
 .main-footer__legal-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .main-footer__legal {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 5px;
 }
+
 .main-footer__legal-link {
   color: #fff;
   text-decoration: none;
   margin-right: 10px;
 }
+
 .main-footer__legal-link:last-child {
   margin-right: 0;
 }
+
 .main-footer__legal-text {
   color: #fff;
 }
+
 .main-footer-logo-svg svg {
   width: 50px;
   height: auto;
 }
+
 a {
   text-decoration: none;
   color: inherit;
@@ -90,21 +104,60 @@ li {
     flex-direction: row;
     justify-content: space-between;
   }
+
   .main-footer__links {
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
+
   .main-footer_primary-links,
   .main-footer_secondary-links {
     flex-direction: column;
     margin-right: 20px;
   }
+
   .main-footer_primary-links {
     grid-row: 1;
   }
+
   .main-footer_secondary-links {
     grid-row: 2;
   }
+
   .main-footer__follow {
-    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-footer__follow h4 {
+    margin-right: 10px;
+  }
+
+  .main-footer__legal {
+    flex-direction: row;
+  }
+
+  .main-footer__legal-link {
+    margin-right: 20px;
+  }
+
+  .main-footer__legal-link:last-child {
+    margin-right: 0;
+  }
+
+  .main-footer__promotion-info {
+    margin-left: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-footer_promo-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 3rem;
   }
 }
