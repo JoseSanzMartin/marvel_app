@@ -8,12 +8,18 @@ import { environment } from 'src/environments/environment.development';
 export class CoreService{
 
   url = environment.baseUrl;
+  buttons : string[] = ['characters', 'comics'];
 
   constructor(private http : HttpClient) { }
+
+  getHeaderButtons(){
+    return this.buttons;
+  }
 
   getCharacters(){
     return this.http.get(`${this.url}characters`);
   }
+
 
 
 }
