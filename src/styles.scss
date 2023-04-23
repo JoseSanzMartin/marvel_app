@@ -10,6 +10,10 @@ body {
   font-family: $text-font;
 }
 
+body::-webkit-scrollbar {
+display: none;
+}
+
 // colors
 
 $primary: #202020;

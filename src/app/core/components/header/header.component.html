@@ -89,7 +89,8 @@
     <div class="flex flex-row align-items-center menu-names"
         *ngFor="let b of buttons; let i = index">
       <span class="buttons px-3 py-3"
-            (mouseover)="toggleContainer(b.name)">
+            (mouseover)="toggleContainer(b.name)"
+            (click)="goTo(b.name)">
             {{ b.name | uppercase }}
       </span>
     </div>
