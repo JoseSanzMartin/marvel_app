@@ -1,21 +1,8 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-4" *ngFor="let comic of comics">
-      <div class="card">
-        <img
-          [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension"
-          class="card-img-top"
-          alt="{{ comic.title }}"
-        />
-        <div class="card-body">
-          <h5 class="card-title">{{ comic.title }}</h5>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">{{ comic.id }}</h5>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">{{ comic.description }}</h5>
-        </div>
+  <div class="container-comics-45">
+    <div class="grid justify-content-center  p-4">
+      <div class="p-col-1 p-col-3 p-md-4 p-lg-6 px-2" *ngFor="let comic of comics">
+        <app-comic-card  [comic]="comic" class="flex-column cursor-pointer"></app-comic-card>
       </div>
     </div>
   </div>

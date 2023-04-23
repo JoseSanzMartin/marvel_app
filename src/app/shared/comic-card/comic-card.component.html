@@ -1,0 +1,18 @@
+<div class="comic-card pb-8 mt-8" (click)="navigateTo(comic.id)">
+  <div class="comic-link">
+    <div class="comic-body">
+      <div class="image-container">
+        <img
+          [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension"
+          class="card-img-top"
+          alt="comic"
+          loading="lazy"
+        />
+      </div>
+    </div>
+    <div class="card-info flex flex-column justify-content-center text-center pt-3">
+      <h5 class="card-text flex-row">{{comic.title}}</h5>
+      <p class="card-text-detail flex-row pb-8">a ver que onda</p>
+    </div>
+  </div>
+</div>
