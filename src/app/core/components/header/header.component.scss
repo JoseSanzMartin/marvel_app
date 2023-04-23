@@ -1,32 +1,32 @@
-@import '/src/styles.scss';
+@import "/src/styles.scss";
 
-
-.mat-tool{
+.mat-tool {
   @include border(#393939, 1px);
   background-color: #202020;
   color: #fff;
   height: 55px;
 }
 
-.box{
+.box {
   @include b-left(#393939, 2px);
   @include b-right(#393939, 2px);
 }
 
-.buttons{
+.buttons {
   @include text($secondary, 12px, 600);
 
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 }
 
-.cont-right{
+.cont-right {
   @include b-left(#393939, 2px);
   @include b-right(#393939, 2px);
 }
 
-.icon-fill{
+
+.icon-fill {
   fill: #fff;
 }
 
@@ -35,59 +35,88 @@
   margin-right: -10px !important;
 }
 
-.line{
+.line {
   height: 55px;
   width: 2px;
   background-color: $primary-light;
   margin-right: -12px;
 }
 
-.menu-icon{
+.link {
+  @include text($primary-dark, 12px, 600);
+  text-decoration: none;
+  list-style-type: none;
+  &:hover {
+    text-decoration: none;
+    color: $accent;
+  }
+}
+
+.list {
+  max-width: 800px;
+  text-decoration: none;
+}
+
+.list-container {
+  justify-content: center;
+  text-decoration: none;
+}
+
+.menu-icon {
   transform: scale(1.3);
 }
 
-.right-text{
- @include text($secondary, 12px, 500);
- margin-bottom: -15px;
+.mennu-names {
+  height: 100%;
+}
+
+.right-text {
+  @include text($secondary, 12px, 500);
+  margin-bottom: -15px;
 }
 
 .right-text-under {
-  @include text($secondary, 10px, 500)
+  @include text($secondary, 10px, 500);
 }
 
-.sub-menu{
+.sub-menu {
   @include text($secondary, 12px, 500);
   background-color: $primary;
   height: 40px;
+  display: block;
+
+  @media (max-width: 768px) {
+    display: none !important;
+  }
 }
 
-.top-navbar{
-  z-index: 1000;
+.title {
+  @include text($primary, 34px, 500);
 }
 
-.user-name{
-  @include text($secondary, 12PX, 600);
+.user-name {
+  @include text($secondary, 12px, 600);
 }
-
 
 @media (max-width: 768px) {
-  .mat-tool{
+  .mat-tool {
     @include border(transparent, 0px);
   }
 
-  .box{
+  .box {
     @include b-left(transparent, 0px);
     @include b-right(transparent, 0px);
   }
 
-  .cont-right{
+  .cont-right {
     @include b-left(transparent, 0px);
     @include b-right(transparent, 0px);
   }
 
-  .line{
+  .line {
     background-color: transparent;
   }
-
-
 }
+
+
+

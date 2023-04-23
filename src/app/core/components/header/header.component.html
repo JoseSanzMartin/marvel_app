@@ -83,21 +83,32 @@
     </div>
   </mat-toolbar>
 
+
+
   <div class="sub-menu flex flex-row align-items-center justify-content-center">
-    <div
-      class="flex flex-row align-items-center"
-      *ngFor="let button of buttons"
-    >
-      <a class="buttons px-3"
-         (click)="goTo(button)"
-         (mouseenter)="isHidden = !isHidden" (mouseleave)="isHidden = !isHidden"
-         >{{ button | uppercase }}</a>
+    <div class="flex flex-row align-items-center menu-names"
+        *ngFor="let b of buttons; let i = index">
+      <span class="buttons px-3 py-3"
+            (mouseover)="toggleContainer(b.name)">
+            {{ b.name | uppercase }}
+      </span>
     </div>
   </div>
-</div>
-<ng-container *ngIf="isHidden">
-  <div>
-    <br>
-    this container will show on button hover
+
+  <div class="container-custom" *ngIf="showComicContainer" (mouseover)="toggleHover('comics')" (mouseleave)="toggleLeave('comics')">
+    <div class="flex flex-row align-items-center justify-content-center">
+      <ul class="pl-0 text-center list" *ngFor="let item of sectionsComic">
+        <li class="px-2 link cursor-pointer">{{ item | uppercase }}</li>
+      </ul>
+    </div>
+    <h3 class="title text-center py-4">LATEST COMICS</h3>
   </div>
-</ng-container>
+
+  <div class="container-custom" *ngIf="showCharacterContainer" (mouseover)="toggleHover('characters')" (mouseleave)="toggleLeave('characters')">
+    <div class="flex flex-row align-items-center justify-content-center">
+      <ul class="pl-0 text-center list" *ngFor="let item of sectionsCharacter">
+        <li class="px-2 link cursor-pointer">{{ item | uppercase }}</li>
+      </ul>
+    </div>
+    <h3 class="title text-center py-4">TRENDING IN THE UNIVERSE</h3>
+  </div>
