@@ -1,5 +1,5 @@
 
-<div class="character-card">
+<div class="character-card" (click)="navigateTo(character.id)">
 	<a class="card-link">
 		<div class="card-head">
 			<figure class="image-wrapper">
@@ -7,6 +7,7 @@
           [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
           class="card-img-top"
           alt="{{ character.name }}"
+          loading="lazy"
         />
 			</figure>
 		</div>
