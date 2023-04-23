@@ -1,19 +1,15 @@
-
 <div class="character-card" (click)="navigateTo(character.id)">
-	<a class="card-link">
-		<div class="card-head">
-			<figure class="image-wrapper">
-				<img
-          [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
-          class="card-img-top"
-          alt="{{ character.name }}"
-          loading="lazy"
-        />
-			</figure>
-		</div>
-		<div class="card-content slider">
-			<p class="card-content-headline">{{ character.name }}</p>
-			<!-- <p class="card-content-footer"></p> -->
-		</div>
-	</a>
+  <a class="card-link">
+    <div class="card-head">
+      <img
+        [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
+        class="card-img-top"
+        alt="{{ character.name }}"
+        loading="lazy"
+      />
+    </div>
+    <div class="card-content slider">
+      <p class="card-content-headline">{{ character.name }}</p>
+    </div>
+  </a>
 </div>

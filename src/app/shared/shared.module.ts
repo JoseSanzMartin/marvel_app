@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './Angular-material/material.module';
 import { CharacterCardComponent } from './character-card/character-card.component';
+import { ComicCardComponent } from './comic-card/comic-card.component';
 
 
 
 @NgModule({
   declarations: [
-    CharacterCardComponent
+    CharacterCardComponent,
+    ComicCardComponent
   ],
   imports: [
     CommonModule,
@@ -15,7 +17,8 @@ import { CharacterCardComponent } from './character-card/character-card.componen
   ],
   exports: [
     MaterialModule,
-    CharacterCardComponent
+    CharacterCardComponent,
+    ComicCardComponent
   ]
 })
 export class SharedModule { }
