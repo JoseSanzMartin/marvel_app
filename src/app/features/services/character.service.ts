@@ -12,15 +12,16 @@ export class CharacterService implements ICharacterService {
   url = environment.baseUrl;
   limitGenCall = 36;
 
-  paramsHeader = new HttpParams()
-    .set("limit", 6)
-    .set("orderBy", "modified");
+  paramsHeader = new HttpParams().set("limit", 6).set("orderBy", "modified");
 
   constructor(private http: HttpClient) {}
 
-  getCharacters(): Observable<CharacterApiResponse> {
+  getCharacters(
+    offset: number,
+    itemsPerPage: number
+  ): Observable<CharacterApiResponse> {
     return this.http.get<CharacterApiResponse>(
-      `${this.url}/characters?limit=${this.limitGenCall}`
+      `${this.url}/characters?offset=${offset}&limit=${itemsPerPage}`
     );
   }
 
