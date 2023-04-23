@@ -1,1 +1,22 @@
-<p>comics works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let comic of comics">
+      <div class="card">
+        <img
+          [src]="comic.thumbnail.path + '.' + comic.thumbnail.extension"
+          class="card-img-top"
+          alt="{{ comic.title }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ comic.title }}</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ comic.id }}</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ comic.description }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

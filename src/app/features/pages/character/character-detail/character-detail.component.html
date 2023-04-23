@@ -1,1 +1,15 @@
-<p>character-detail works!</p>
+<div *ngIf="charSelected">
+  <div class="card" style="width: 18rem">
+    <img
+      [src]="
+        charSelected.thumbnail.path + '.' + charSelected.thumbnail.extension
+      "
+      alt="{{ charSelected.name }}"
+      class="card-img-top"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ charSelected.name }}</h5>
+      <p class="card-text">{{ charSelected.description }}</p>
+    </div>
+  </div>
+</div>

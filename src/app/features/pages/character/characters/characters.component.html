@@ -1,1 +1,22 @@
-<p>characters works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let character of characters">
+      <div class="card">
+        <img
+          [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
+          class="card-img-top"
+          alt="{{ character.name }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ character.name }}</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ character.id }}</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ character.description }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
