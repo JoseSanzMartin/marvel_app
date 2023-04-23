@@ -4,6 +4,8 @@ import { Router } from "@angular/router";
 import { Buttons } from "./Ibutton";
 import { CharacterService } from '../../../features/services/character.service';
 import { Character } from "../../models/ICharacter";
+import { ComicService } from "src/app/features/services/comic.service";
+import { Comic } from "../../models/IComic";
 
 @Component({
   selector: "app-header",
@@ -15,6 +17,7 @@ export class HeaderComponent implements OnInit {
   sectionsComic: string[] = [];
   sectionsCharacter: string[] = [];
   characters: Character[] = [];
+  comics : Comic[] = [];
 
   showComicContainer = false;
   showCharacterContainer = false;
@@ -23,13 +26,15 @@ export class HeaderComponent implements OnInit {
   constructor(
     private coreService: CoreService,
     private router: Router,
-    private charService: CharacterService) {}
+    private charService: CharacterService,
+    private comService : ComicService) {}
 
   ngOnInit(): void {
     this.buttons = this.coreService.getHeaderButtons();
     this.sectionsComic = this.coreService.getHeaderSections("comic");
     this.sectionsCharacter = this.coreService.getHeaderSections("character");
     this.takeCharacters();
+    this.takeComics();
   }
 
   navigateToHome() {
@@ -47,6 +52,15 @@ export class HeaderComponent implements OnInit {
       console.log(res);
       this.characters = res.data.results;
     });}
+
+  takeComics(){
+    this.comService.getComics().subscribe(
+      (res) => {
+        this.comics = res.data.results;
+        console.log(res);
+      }
+    );
+  }
 
   toggleContainer(name: string) {
     if (name == "comics") {
