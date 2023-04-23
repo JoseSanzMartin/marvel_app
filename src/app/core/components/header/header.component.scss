@@ -25,6 +25,18 @@
   @include b-right(#393939, 2px);
 }
 
+.container-custom {
+  position: absolute;
+  background-color: $secondary;
+  width: 100%;
+  top: 10;
+  color: #fff;
+  z-index: 99999;
+}
+
+container-top {
+  position: relative;
+}
 
 .icon-fill {
   fill: #fff;
@@ -117,6 +129,3 @@
     background-color: transparent;
   }
 }
-
-
-
