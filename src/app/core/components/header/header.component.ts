@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit {
   }
 
   goTo(url: string) {
+    console.log(url);
     this.router.navigate(["/", url]);
   }
 
