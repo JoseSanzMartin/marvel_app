@@ -1,5 +1,5 @@
 import { Observable } from "rxjs";
-import { Comic, ComicApiResponse } from "../models/IComic";
+import { ComicApiResponse } from "../models/IComic";
 
 export interface IComicService {
   getComics(): Observable<ComicApiResponse>;

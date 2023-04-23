@@ -114,6 +114,13 @@
       </ul>
     </div>
     <h3 class="title text-center py-4">TRENDING IN THE UNIVERSE</h3>
+
+    <div class="div" class="flex flex-row justify-content-center pb-4 pl-0 ml-0 pr-2">
+      <div *ngFor="let character of characters" class="flex flex-column">
+        <app-character-card [character]="character" class="cursor-pointer"></app-character-card>
+      </div>
+    </div>
+
   </div>
   </div>
 

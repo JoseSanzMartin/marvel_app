@@ -5,7 +5,7 @@ $light: #ccc;
 
 
 .character-card {
-	width: 180px;
+	max-width: 160px;
 	white-space: normal;
 	position: relative;
 	clip-path: polygon(0% 0%, 100% 0%, 100% 94%, 87% 100%, 0% 100%);

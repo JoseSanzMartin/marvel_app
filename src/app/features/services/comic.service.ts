@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment.development";
-import { Comic, ComicApiResponse } from "../../core/models/IComic";
+import { ComicApiResponse } from "../../core/models/IComic";
 import { IComicService } from "../../core/contracts/IComic.service";
 import { Observable } from "rxjs";
 
