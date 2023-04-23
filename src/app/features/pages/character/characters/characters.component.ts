@@ -9,12 +9,28 @@ import { CharacterService } from "src/app/features/services/character.service";
 })
 export class CharactersComponent implements OnInit {
   characters: Character[] = [];
+  currentPage: number = 1;
+  itemsPerPage: number = 36;
+  totalItems: number = 0;
 
   constructor(private characterService: CharacterService) {}
 
   ngOnInit(): void {
-    this.characterService.getCharacters().subscribe((response) => {
-      this.characters = response.data.results;
-    });
+    this.loadPage(this.currentPage, this.itemsPerPage);
+  }
+
+  loadPage(page: number, itemsPerPage: number): void {
+    const offset = (page - 1) * itemsPerPage;
+    this.characterService
+      .getCharacters(offset, itemsPerPage)
+      .subscribe((response) => {
+        this.characters = response.data.results;
+        this.totalItems = response.data.total;
+      });
+  }
+
+  onPageChange(page: number): void {
+    this.currentPage = page;
+    this.loadPage(page, this.itemsPerPage);
   }
 }

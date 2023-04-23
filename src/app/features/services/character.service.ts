@@ -16,8 +16,13 @@ export class CharacterService implements ICharacterService {
 
   constructor(private http: HttpClient) {}
 
-  getCharacters(): Observable<CharacterApiResponse> {
-    return this.http.get<CharacterApiResponse>(`${this.url}/characters`);
+  getCharacters(
+    offset: number,
+    itemsPerPage: number
+  ): Observable<CharacterApiResponse> {
+    return this.http.get<CharacterApiResponse>(
+      `${this.url}/characters?offset=${offset}&limit=${itemsPerPage}`
+    );
   }
 
   getCharacterById(id: number): Observable<CharacterApiResponse> {

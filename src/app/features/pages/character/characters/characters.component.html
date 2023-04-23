@@ -1,6 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4" *ngFor="let character of characters">
+    <div
+      class="col-md-4"
+      *ngFor="
+        let character of characters
+          | paginate
+            : {
+                itemsPerPage: itemsPerPage,
+                currentPage: currentPage,
+                totalItems: totalItems
+              }
+      "
+    >
       <div class="card">
         <img
           [src]="character.thumbnail.path + '.' + character.thumbnail.extension"
@@ -19,4 +30,12 @@
       </div>
     </div>
   </div>
+  <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    (pageChange)="onPageChange($event)"
+    [maxSize]="5"
+    [directionLinks]="true"
+    [autoHide]="true"
+  ></pagination-controls>
 </div>

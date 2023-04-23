@@ -5,6 +5,9 @@ import {
 } from "src/app/core/models/ICharacter";
 
 export interface ICharacterService {
-  getCharacters(): Observable<CharacterApiResponse>;
+  getCharacters(
+    offset: number,
+    itemsPerPage: number
+  ): Observable<CharacterApiResponse>;
   getCharacterById(id: number): Observable<CharacterApiResponse>;
 }
