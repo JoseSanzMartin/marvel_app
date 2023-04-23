@@ -104,7 +104,12 @@
         <li class="px-2 link cursor-pointer">{{ item | uppercase }}</li>
       </ul>
     </div>
-    <h3 class="title text-center py-4">LATEST COMICS</h3>
+    <h3 class="title text-center pt-4">LATEST COMICS</h3>
+    <div class="div" class="flex flex-row justify-content-center pb-4 pl-0 ml-0 pr-2">
+      <div *ngFor="let comic of comics.slice(0,6)" class="flex flex-column pt-0">
+        <app-comic-card [comic]="comic" class="cursor-pointer px-2"></app-comic-card>
+      </div>
+    </div>
   </div>
 
   <div class="container-custom" *ngIf="showCharacterContainer" (mouseover)="toggleHover('characters')" (mouseleave)="toggleLeave('characters')">
