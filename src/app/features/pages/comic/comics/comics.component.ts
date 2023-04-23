@@ -14,6 +14,7 @@ export class ComicsComponent implements OnInit {
 
   ngOnInit(): void {
     this.comicService.getComics().subscribe((response) => {
+      console.log(response.data.results);
       this.comics = response.data.results;
     });
   }
