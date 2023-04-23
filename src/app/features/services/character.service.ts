@@ -1,10 +1,7 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment.development";
-import {
-  Character,
-  CharacterApiResponse,
-} from "src/app/core/models/ICharacter";
+import { CharacterApiResponse } from "src/app/core/models/ICharacter";
 import { ICharacterService } from "../../core/contracts/ICharacter.service";
 import { Observable } from "rxjs";
 
@@ -12,15 +9,28 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class CharacterService implements ICharacterService {
-  private url = environment.baseUrl;
+  url = environment.baseUrl;
+  limitGenCall = 36;
+
+  paramsHeader = new HttpParams()
+    .set("limit", 6)
+    .set("orderBy", "modified");
 
   constructor(private http: HttpClient) {}
 
   getCharacters(): Observable<CharacterApiResponse> {
-    return this.http.get<CharacterApiResponse>(`${this.url}/characters`);
+    return this.http.get<CharacterApiResponse>(
+      `${this.url}/characters?limit=${this.limitGenCall}`
+    );
   }
 
   getCharacterById(id: number): Observable<CharacterApiResponse> {
     return this.http.get<CharacterApiResponse>(`${this.url}characters/${id}`);
+  }
+
+  getCharacterForHeader(): Observable<CharacterApiResponse> {
+    return this.http.get<CharacterApiResponse>(
+      `${this.url}characters?${this.paramsHeader}`
+    );
   }
 }

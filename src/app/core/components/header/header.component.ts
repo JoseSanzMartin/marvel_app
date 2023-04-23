@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { CoreService } from "../../services/core.service";
 import { Router } from "@angular/router";
 import { Buttons } from "./Ibutton";
+import { CharacterService } from '../../../features/services/character.service';
+import { Character } from "../../models/ICharacter";
 
 @Component({
   selector: "app-header",
@@ -12,17 +14,22 @@ export class HeaderComponent implements OnInit {
   buttons!: Buttons[];
   sectionsComic: string[] = [];
   sectionsCharacter: string[] = [];
+  characters: Character[] = [];
 
   showComicContainer = false;
   showCharacterContainer = false;
   isHovering = false;
 
-  constructor(private coreService: CoreService, private router: Router) {}
+  constructor(
+    private coreService: CoreService,
+    private router: Router,
+    private charService: CharacterService) {}
 
   ngOnInit(): void {
     this.buttons = this.coreService.getHeaderButtons();
     this.sectionsComic = this.coreService.getHeaderSections("comic");
     this.sectionsCharacter = this.coreService.getHeaderSections("character");
+    this.takeCharacters();
   }
 
   navigateToHome() {
@@ -33,6 +40,13 @@ export class HeaderComponent implements OnInit {
     console.log(url);
     this.router.navigate(["/", url]);
   }
+
+  takeCharacters() {
+    this.charService.getCharacterForHeader()
+    .subscribe((res) => {
+      console.log(res);
+      this.characters = res.data.results;
+    });}
 
   toggleContainer(name: string) {
     if (name == "comics") {
