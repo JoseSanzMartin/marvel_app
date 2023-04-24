@@ -98,7 +98,7 @@
 
 
   <div class="container-top">
-  <div class="container-custom" *ngIf="showComicContainer" (mouseover)="toggleHover('comics')" (mouseleave)="toggleLeave('comics')">
+  <div class="container-custom pb-3" *ngIf="showComicContainer" (mouseover)="toggleHover('comics')" (mouseleave)="toggleLeave('comics')">
     <div class="flex flex-row align-items-center justify-content-center">
       <ul class="pl-0 text-center list" *ngFor="let item of sectionsComic">
         <li class="px-2 link cursor-pointer">{{ item | uppercase }}</li>
