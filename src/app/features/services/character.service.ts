@@ -16,12 +16,21 @@ export class CharacterService implements ICharacterService {
 
   constructor(private http: HttpClient) {}
 
-  getCharacters(
+  loadPage(
     offset: number,
     itemsPerPage: number
   ): Observable<CharacterApiResponse> {
     return this.http.get<CharacterApiResponse>(
       `${this.url}/characters?offset=${offset}&limit=${itemsPerPage}`
+    );
+  }
+
+  loadDescendPage(
+    offset: number,
+    itemsPerPage: number
+  ): Observable<CharacterApiResponse> {
+    return this.http.get<CharacterApiResponse>(
+      `${this.url}/characters?orderBy=-name&offset=${offset}&limit=${itemsPerPage}`
     );
   }
 

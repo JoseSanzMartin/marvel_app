@@ -12,25 +12,40 @@ export class CharactersComponent implements OnInit {
   currentPage: number = 1;
   itemsPerPage: number = 36;
   totalItems: number = 0;
+  currentOrder: "asc" | "desc" = "asc";
 
   constructor(private characterService: CharacterService) {}
 
   ngOnInit(): void {
-    this.loadPage(this.currentPage, this.itemsPerPage);
+    this.loadPage(this.currentPage, this.itemsPerPage, this.currentOrder);
   }
 
-  loadPage(page: number, itemsPerPage: number): void {
+  loadPage(page: number, itemsPerPage: number, order: "asc" | "desc"): void {
     const offset = (page - 1) * itemsPerPage;
-    this.characterService
-      .getCharacters(offset, itemsPerPage)
-      .subscribe((response) => {
-        this.characters = response.data.results;
-        this.totalItems = response.data.total;
-      });
+    if (order === "asc") {
+      this.characterService
+        .loadPage(offset, itemsPerPage)
+        .subscribe((response) => {
+          this.characters = response.data.results;
+          this.totalItems = response.data.total;
+        });
+    } else {
+      this.characterService
+        .loadDescendPage(offset, itemsPerPage)
+        .subscribe((response) => {
+          this.characters = response.data.results;
+          this.totalItems = response.data.total;
+        });
+    }
   }
 
   onPageChange(page: number): void {
     this.currentPage = page;
-    this.loadPage(page, this.itemsPerPage);
+    this.loadPage(page, this.itemsPerPage, this.currentOrder);
+  }
+
+  setOrder(order: "asc" | "desc"): void {
+    this.currentOrder = order;
+    this.loadPage(this.currentPage, this.itemsPerPage, order);
   }
 }
