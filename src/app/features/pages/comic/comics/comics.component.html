@@ -1,8 +1,61 @@
 <div class="container">
   <div class="container-comics-45">
+    <h2 class="tittle-thisweek-comics">APRIL 19: NEW RELEASES</h2>
     <div class="grid justify-content-center p-4">
-      <div class="p-col-1 p-col-3 p-md-4 p-lg-6 pb-7 px-2" *ngFor="let comic of comics">
-        <app-comic-card  [comic]="comic" class="flex-column cursor-pointer "></app-comic-card>
+      <div
+        class="p-col-1 p-col-3 p-md-4 p-lg-6 pb-7 px-2"
+        *ngFor="let comic of comics; index as i"
+        [hidden]="i >= displayedComics"
+      >
+        <app-comic-card
+          [comic]="comic"
+          class="flex-column cursor-pointer"
+        ></app-comic-card>
+      </div>
+    </div>
+  </div>
+  <div class="load-more-container" *ngIf="showLoadMoreButton">
+    <button mat-raised-button (click)="loadMoreComics()">Load more</button>
+  </div>
+  <div class="container-bestSelling-comics">
+    <h2 class="tittle-bestSelling">BEST SELLING COMICS</h2>
+    <div class="carousel">
+      <ng-container
+        *ngFor="let bestSellingComics of bestSellingComics; index as i"
+      >
+        <app-comic-card
+          *ngIf="i === bestSellingSlideIndex"
+          [comic]="bestSellingComics"
+          class="carousel-slide"
+        ></app-comic-card>
+      </ng-container>
+      <div class="carousel-controls">
+        <button mat-raised-button (click)="previousSlide('bestSelling')">
+          Previous
+        </button>
+        <button mat-raised-button (click)="nextSlide('bestSelling')">
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="container-random-comics">
+    <h2 class="tittle-randomComics">Random Comics</h2>
+    <div class="carousel">
+      <ng-container *ngFor="let randomComic of randomComics; index as i">
+        <app-comic-card
+          *ngIf="i === randomComicsSlideIndex"
+          [comic]="randomComic"
+          class="carousel-slide"
+        ></app-comic-card>
+      </ng-container>
+      <div class="carousel-controls">
+        <button mat-raised-button (click)="previousSlide('randomComics')">
+          Previous
+        </button>
+        <button mat-raised-button (click)="nextSlide('randomComics')">
+          Next
+        </button>
       </div>
     </div>
     <app-back-button class="back-button flex text-center justify-content-center pb-4"></app-back-button>
