@@ -1,27 +1,29 @@
 <div class="container">
   <div class="grid justify-content-center container-char-45 p-4">
-
-
-
     <div
       class="p-col-1 p-col-3 p-md-4 p-lg-6 py-2"
       *ngFor="
-        let character of characters | paginate  : {
+        let character of characters
+          | paginate
+            : {
                 itemsPerPage: itemsPerPage,
                 currentPage: currentPage,
-                totalItems: totalItems }"
+                totalItems: totalItems
+              }
+      "
     >
-    <app-character-card
+      <app-character-card
         [character]="character"
         class="flex-column cursor-pointer"
       ></app-character-card>
     </div>
   </div>
-
 </div>
+<button (click)="setOrder('asc')">A-Z</button>
+<button (click)="setOrder('desc')">Z-A</button>
 
 <pagination-controls
- class="pagination d-flex justify-content-center"
+  class="pagination d-flex justify-content-center"
   previousLabel="Prev"
   nextLabel="Next"
   (pageChange)="onPageChange($event)"
