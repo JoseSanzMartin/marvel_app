@@ -22,4 +22,14 @@ export class ComicService implements IComicService {
   getComicById(id: number): Observable<ComicApiResponse> {
     return this.http.get<ComicApiResponse>(`${this.url}comics/${id}`);
   }
+
+  getBestSelling(): Observable<ComicApiResponse> {
+    return this.http.get<ComicApiResponse>(`${this.url}comics?limit=20`);
+  }
+
+  getRandomComics(): Observable<ComicApiResponse> {
+    return this.http.get<ComicApiResponse>(
+      `${this.url}comics?dateDescriptor=thisMonth&limit=50`
+    );
+  }
 }

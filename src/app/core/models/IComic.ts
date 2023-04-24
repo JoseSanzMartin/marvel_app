@@ -1,7 +1,10 @@
+import { Price } from "./IPrice";
+
 export interface Comic {
   id: number;
   title: string;
   description: string;
+  prices: Price[];
   thumbnail: {
     path: string;
     extension: string;
@@ -13,6 +16,7 @@ export interface ComicApiResponse {
   copyright: string;
   attributionText: string;
   attributionHTML: string;
+
   data: {
     offset: number;
     limit: number;

@@ -1,9 +1,64 @@
-.container-comics-45{
+.container-comics-45 {
   max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.container{
+.container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   width: 100%;
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.carousel-slide {
+  width: 300px;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-controls {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+
+  button {
+    background-color: #ec1d24;
+    color: white;
+    margin: 0.5rem;
+  }
+}
+
+.container-random-comics {
+  text-align: center;
+}
+
+.tittle-thisweek-comics {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.tittle-bestSelling {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+
+  button {
+    background-color: #ec1d24;
+    color: white;
+  }
 }

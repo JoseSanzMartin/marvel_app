@@ -3,5 +3,7 @@ import { ComicApiResponse } from "../models/IComic";
 
 export interface IComicService {
   getComics(): Observable<ComicApiResponse>;
+  getBestSelling(): Observable<ComicApiResponse>;
   getComicById(id: number): Observable<ComicApiResponse>;
+  getRandomComics(): Observable<ComicApiResponse>;
 }
