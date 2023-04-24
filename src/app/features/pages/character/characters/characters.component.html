@@ -1,38 +1,46 @@
-<div class="container">
-  <div class="grid justify-content-center container-char-45 p-4">
-    <div
-      class="p-col-1 p-col-3 p-md-4 p-lg-6 py-2"
-      *ngFor="
-        let character of characters
-          | paginate
-            : {
-                itemsPerPage: itemsPerPage,
-                currentPage: currentPage,
-                totalItems: totalItems
-              }
-      "
-    >
-      <app-character-card
-        [character]="character"
-        class="flex-column cursor-pointer"
-      ></app-character-card>
+<div class="container-top ">
+  <div class=" container-selector">
+    <div class="flex selector mt-4">
+      <mat-form-field color="warn">
+        <mat-label>Select an option</mat-label>
+        <mat-select [(value)]="selected"  (valueChange)="setOrder(selected)">
+          <mat-option value="asc">A-Z</mat-option>
+          <mat-option value="desc">Z-A</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
   </div>
-</div>
-<button (click)="setOrder('asc')">A-Z</button>
-<button (click)="setOrder('desc')">Z-A</button>
 
-<div class="bottom d-flex flex-row justify-content-center ">
-  <pagination-controls
-   class="pagination d-flex justify-content-center"
-    previousLabel="Prev"
-    nextLabel="Next"
-    (pageChange)="onPageChange($event)"
-    [maxSize]="5"
-    [directionLinks]="true"
-    [autoHide]="true"
-  ></pagination-controls>
+  <div class="container">
+    <div class="grid justify-content-center container-char-45 p-4">
+      <div
+        class="p-col-1 p-col-3 p-md-4 p-lg-6 py-2"
+        *ngFor=" let character of characters | paginate : {
+                  itemsPerPage: itemsPerPage,
+                  currentPage: currentPage,
+                  totalItems: totalItems } ">
 
-  <app-back-button class="back-button"></app-back-button>
+        <app-character-card
+          [character]="character"
+          class="flex-column cursor-pointer">
+        </app-character-card>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom d-flex flex-row justify-content-center">
+    <pagination-controls
+      class="pagination d-flex justify-content-center"
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onPageChange($event)"
+      [maxSize]="5"
+      [directionLinks]="true"
+      [autoHide]="true"
+    ></pagination-controls>
+
+    <app-back-button class="back-button"></app-back-button>
+  </div>
 
 </div>

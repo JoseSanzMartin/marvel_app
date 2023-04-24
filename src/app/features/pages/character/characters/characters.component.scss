@@ -23,9 +23,24 @@
   max-width: 1200px;
 }
 
+.container-top{
+  width: 100%;
+}
+
+.container-selector{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
   width: 100%;
   margin-top: 20px;
 }
+
+.selector{
+  max-width: 1200px;
+ justify-content: center;
+}
+
