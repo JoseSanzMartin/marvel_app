@@ -18,7 +18,6 @@ export class CharacterDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get("id");
-
     if (id) {
       this.characterService
         .getCharacterById(parseInt(id, 10))
