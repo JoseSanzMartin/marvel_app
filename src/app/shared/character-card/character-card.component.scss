@@ -18,6 +18,15 @@ $light: #ccc;
 		color: $secondary;
 	}
 
+  img {
+    transform: scale(1);
+    transition: all 0.2s linear;
+    overflow: hidden;
+    object-position: top center;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
 	.card-head {
 		background: $accent;
 		margin: 0;
@@ -27,7 +36,7 @@ $light: #ccc;
 
 		.image-wrapper {
 			margin: 0;
-			height: 100%;
+			// height: 100%;
 			position: relative;
 
 			&::after {
@@ -40,15 +49,7 @@ $light: #ccc;
 				bottom: 0;
 			}
 
-			img {
-				transform: scale(1);
-				transition: all 0.2s linear;
-				overflow: hidden;
-				object-position: top center;
-				object-fit: cover;
-				width: 100%;
-				height: 100%;
-			}
+
 		}
 	}
 
