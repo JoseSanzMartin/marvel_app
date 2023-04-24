@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Observable } from "rxjs";
+import { SpinnerService } from "src/app/shared/service/spinner.service";
 
 @Component({
   selector: "app-home",
@@ -6,6 +8,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
+
   ngOnInit(): void {
 
     const element  = document.getElementById("animate");

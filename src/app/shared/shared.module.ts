@@ -4,6 +4,7 @@ import { MaterialModule } from './Angular-material/material.module';
 import { CharacterCardComponent } from './character-card/character-card.component';
 import { ComicCardComponent } from './comic-card/comic-card.component';
 import { BackButtonComponent } from './back-button/back-button.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
@@ -11,7 +12,8 @@ import { BackButtonComponent } from './back-button/back-button.component';
   declarations: [
     CharacterCardComponent,
     ComicCardComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { BackButtonComponent } from './back-button/back-button.component';
     MaterialModule,
     CharacterCardComponent,
     ComicCardComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    SpinnerComponent
   ]
 })
 export class SharedModule { }
