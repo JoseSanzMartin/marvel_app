@@ -1,5 +1,6 @@
 
 <div *ngIf="charSelected">
+  <app-back-button class="back-button pl-4"></app-back-button>
   <div class="image-top">
     <img
       [src]="
@@ -17,6 +18,9 @@
     <h1 class="jj">
       <span>{{ charSelected.name }}</span>
     </h1>
+
     <p class="text px-2">{{charSelected.description}}</p>
   </div>
+
 </div>
+
