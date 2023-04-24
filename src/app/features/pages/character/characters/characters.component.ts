@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-inferrable-types */
 import { Component, OnInit } from "@angular/core";
 import { Character } from "src/app/core/models/ICharacter";
 import { CharacterService } from "src/app/features/services/character.service";
@@ -13,6 +14,7 @@ export class CharactersComponent implements OnInit {
   itemsPerPage: number = 36;
   totalItems: number = 0;
   currentOrder: "asc" | "desc" = "asc";
+  selected : "asc" | "desc" = "asc";
 
   constructor(private characterService: CharacterService) {}
 
@@ -21,6 +23,7 @@ export class CharactersComponent implements OnInit {
   }
 
   loadPage(page: number, itemsPerPage: number, order: "asc" | "desc"): void {
+
     const offset = (page - 1) * itemsPerPage;
     if (order === "asc") {
       this.characterService
