@@ -13,10 +13,9 @@ export class ComicService implements IComicService {
 
   constructor(private http: HttpClient) {}
 
-
   getComics(): Observable<ComicApiResponse> {
     return this.http.get<ComicApiResponse>(
-      `${this.url}comics?dateDescriptor=thisWeek&limit=12`
+      `${this.url}comics?dateDescriptor=thisWeek&limit=20`
     );
   }
 
