@@ -1,11 +1,6 @@
 @import "src/styles.scss";
 
-.card-text {
-  @include text($primary, 14px, 600);
-  &:hover {
-    color: $accent;
-  }
-}
+
 
 .comic-body {
   padding: 0;
@@ -17,6 +12,20 @@
 .comic-card {
   width: 224px;
   height: 336px;
+
+  &:hover{
+    .card-text{
+      color: $accent;
+    }
+  }
+
+  .card-text {
+    @include text($primary, 14px, 600);
+    &:hover {
+      color: $accent;
+    }
+  }
+
 
   img {
     transform: scale(1);

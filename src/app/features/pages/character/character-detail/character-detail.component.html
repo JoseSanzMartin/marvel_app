@@ -1,5 +1,5 @@
 <div *ngIf="charSelected">
-  <div class="card" style="width: 18rem">
+  <div class="image-top">
     <img
       [src]="
         charSelected.thumbnail.path + '.' + charSelected.thumbnail.extension
@@ -7,9 +7,15 @@
       alt="{{ charSelected.name }}"
       class="card-img-top"
     />
-    <div class="card-body">
-      <h5 class="card-title">{{ charSelected.name }}</h5>
-      <p class="card-text">{{ charSelected.description }}</p>
-    </div>
+  </div>
+
+  <div class="panel">
+    <h1 class="jj">
+      <span>{{ charSelected.name }}</span>
+    </h1>
+    <h1 class="jj">
+      <span>{{ charSelected.name }}</span>
+    </h1>
+    <p class="text px-2">{{charSelected.description}}</p>
   </div>
 </div>

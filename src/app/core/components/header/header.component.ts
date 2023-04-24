@@ -42,14 +42,12 @@ export class HeaderComponent implements OnInit {
   }
 
   goTo(url: string) {
-    console.log(url);
     this.router.navigate(["/", url]);
   }
 
   takeCharacters() {
     this.charService.getCharacterForHeader()
     .subscribe((res) => {
-      console.log(res);
       this.characters = res.data.results;
     });}
 
@@ -57,7 +55,6 @@ export class HeaderComponent implements OnInit {
     this.comService.getComics().subscribe(
       (res) => {
         this.comics = res.data.results;
-        console.log(res);
       }
     );
   }
@@ -73,7 +70,6 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleHover(container: string) {
-    console.log(container);
     if (container == "comics") {
       this.showComicContainer = true;
     } else {

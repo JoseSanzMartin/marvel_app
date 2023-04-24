@@ -1,15 +1,21 @@
 <div *ngIf="comicSelected">
-  <div class="card" style="width: 18rem">
+  <div class="image-top">
     <img
       [src]="
-        comicSelected.thumbnail.path + '.' + comicSelected.thumbnail.extension
+      comicSelected.thumbnail.path + '.' + comicSelected.thumbnail.extension
       "
       alt="{{ comicSelected.title }}"
       class="card-img-top"
     />
-    <div class="card-body">
-      <h5 class="card-title">{{ comicSelected.title }}</h5>
-      <p class="card-text">{{ comicSelected.description }}</p>
-    </div>
+  </div>
+
+  <div class="panel">
+    <h1 class="jj">
+      <span>{{ comicSelected.title }}</span>
+    </h1>
+    <h1 class="jj">
+      <span>{{ comicSelected.title }}</span>
+    </h1>
+    <p class="text px-2">{{comicSelected.description}}</p>
   </div>
 </div>
