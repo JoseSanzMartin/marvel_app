@@ -10,6 +10,7 @@ import { CharacterService } from "src/app/features/services/character.service";
 })
 export class CharacterDetailComponent implements OnInit {
   charSelected: Character | null = null;
+  id! : string | null;
 
   constructor(
     private characterService: CharacterService,
@@ -17,10 +18,10 @@ export class CharacterDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get("id");
-    if (id) {
+    this.id = this.route.snapshot.paramMap.get("id");
+    if (this.id) {
       this.characterService
-        .getCharacterById(parseInt(id, 10))
+        .getCharacterById(parseInt(this.id, 10))
         .subscribe((response) => {
           this.charSelected = response.data.results[0];
         });
