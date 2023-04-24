@@ -1,10 +1,12 @@
 import { Observable } from "rxjs";
-import {
-  CharacterApiResponse,
-} from "src/app/core/models/ICharacter";
+import { CharacterApiResponse } from "src/app/core/models/ICharacter";
 
 export interface ICharacterService {
-  getCharacters(
+  loadPage(
+    offset: number,
+    itemsPerPage: number
+  ): Observable<CharacterApiResponse>;
+  loadDescendPage(
     offset: number,
     itemsPerPage: number
   ): Observable<CharacterApiResponse>;
