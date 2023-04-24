@@ -95,3 +95,8 @@ $black: $primary-dark;
 
 }
 
+.back-button {
+  position: absolute;
+  bottom: 0;
+  z-index: 999999;
+}

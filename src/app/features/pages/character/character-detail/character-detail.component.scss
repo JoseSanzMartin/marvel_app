@@ -1,4 +1,4 @@
-@import 'src/styles.scss';
+@import "src/styles.scss";
 
 $jj: $secondary;
 $black: $primary-dark;
@@ -82,7 +82,7 @@ $black: $primary-dark;
   }
 }
 
-.text{
+.text {
   @include text($secondary, 1rem, 500);
   max-width: 600px;
   position: absolute;
@@ -94,3 +94,8 @@ $black: $primary-dark;
   top: 90%;
 }
 
+.back-button {
+  position: absolute;
+  bottom: 0;
+  z-index: 999;
+}

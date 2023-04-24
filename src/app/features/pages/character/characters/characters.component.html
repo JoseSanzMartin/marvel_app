@@ -22,12 +22,17 @@
 <button (click)="setOrder('asc')">A-Z</button>
 <button (click)="setOrder('desc')">Z-A</button>
 
-<pagination-controls
-  class="pagination d-flex justify-content-center"
-  previousLabel="Prev"
-  nextLabel="Next"
-  (pageChange)="onPageChange($event)"
-  [maxSize]="5"
-  [directionLinks]="true"
-  [autoHide]="true"
-></pagination-controls>
+<div class="bottom d-flex flex-row justify-content-center ">
+  <pagination-controls
+   class="pagination d-flex justify-content-center"
+    previousLabel="Prev"
+    nextLabel="Next"
+    (pageChange)="onPageChange($event)"
+    [maxSize]="5"
+    [directionLinks]="true"
+    [autoHide]="true"
+  ></pagination-controls>
+
+  <app-back-button class="back-button"></app-back-button>
+
+</div>

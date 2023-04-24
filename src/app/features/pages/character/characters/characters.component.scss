@@ -1,17 +1,29 @@
-@import 'src/styles.scss';
+@import "src/styles.scss";
 
-.container{
+.back-button {
+  position: absolute;
+  margin-top: 15px;
+  margin: 15px;
+  top: 0;
+  right: 0;
+}
+
+.bottom {
+  position: relative;
+  // max-width: 900px;
+}
+
+.container {
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-.container-char-45{
-
+.container-char-45 {
   max-width: 1200px;
 }
 
-.pagination{
+.pagination {
   display: flex;
   justify-content: center;
   width: 100%;
