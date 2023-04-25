@@ -30,19 +30,17 @@ export class ComicDetailComponent implements OnInit, OnDestroy {
         .getComicById(parseInt(id, 10))
         .pipe(
           map((response) => {
-            return response.data.results[0];
-          }),
-          tap((response) => console.log(response))
-        )
+            const comic  = {
+              thumbnail : response.data.results[0].thumbnail,
+              title : response.data.results[0].title,
+              description : response.data.results[0].description,
+              prices : response.data.results[0].prices
+            };
+            return comic;
+          }))
         .subscribe((response) => {
-          this.comicImage = response;
-          this.comicTitle = {
-            title: response.title,
-            description: response.description,
-            thumbnail: response.thumbnail,
-            prices : response.prices,
-          } as Comic;
-          console.log(this.comicImage);
+          this.comicImage = { thumbnail: response.thumbnail, title: response.title } as Comic;
+          this.comicTitle = { title: response.title, description: response.description, prices: response.prices } as Comic;
         });
     });
   }

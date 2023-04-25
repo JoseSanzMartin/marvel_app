@@ -71,11 +71,29 @@ $jj: $secondary;
 .text{
   @include text($secondary, 1rem, 500);
   max-width: 600px;
-  // position: absolute;
-  // margin-left: auto;
-  // margin-right: auto;
-  // left: 0;
-  // right: 0;
-  // text-align: center;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
 
 }
+
+@media ( max-height: 1200px ) {
+ .jj{
+    margin-top: 400px;
+    font-size: 10vmin;
+ }
+ .panel{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:  $primary-dark;
+    color: $secondary;
+  }
+ }
+
