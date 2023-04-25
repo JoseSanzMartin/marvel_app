@@ -1,0 +1,9 @@
+<div class="image-top" *ngIf="image">
+  <img
+    [src]="
+    image.thumbnail.path + '.' + image.thumbnail.extension
+    "
+    alt="{{ image.title }}"
+    class="card-img-top"
+  />
+</div>

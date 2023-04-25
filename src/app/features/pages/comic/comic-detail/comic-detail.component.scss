@@ -1,98 +1,27 @@
 @import 'src/styles.scss';
 
-$jj: $secondary;
-$black: $primary-dark;
-
-.panel {
-  overflow: auto;
-  width: 100%;
+.details{
   height: 100vh;
-  position: relative;
-  background: radial-gradient(circle, lighten($black, 5%) 15%, $black);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary;
+  color: $secondary;
 }
 
-.jj {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-size: 6vmin;
-  color: $jj;
-  line-height: 0.85;
-  text-transform: uppercase;
-  background-image: url(https://anonimag.es/i/cee6d0f7-9dd3-430b-b9c3-bee2c52779b453d9f.jpg);
-  background-size: contain;
-  -webkit-text-fill-color: rgba(white, 0.1);
-  -webkit-background-clip: text;
-  z-index: 10;
-  font-family: $marvel-font;
-
-  &:before {
-    content: "marvel";
-    display: table;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 15px;
-    font-size: 3vmax;
-    color: white;
-    -webkit-text-fill-color: white;
-    -webkit-background-clip: none;
-    background-color: red;
-    padding: 3px;
-  }
-
-  & + & {
-    -webkit-text-fill-color: red;
-    z-index: 20;
-    animation: meh 3s ease-out infinite alternate;
-
-    @at-root {
-      @keyframes meh {
-        from {
-          clip-path: polygon(100% 0, 100% 100%, 20% 100%, 61% 91%, 94% 47%);
-        }
-        50% {
-          clip-path: polygon(100% 0, 100% 100%, 20% 100%, 59% 52%, 74% 13%);
-        }
-        to {
-          clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 85%, 87% 41%);
-        }
-      }
-    }
-  }
-
-  span {
-    display: block;
-  }
+.image{
+  display: flex;
+  justify-content: center;
+  align-items: start;
 }
 
-.image-top {
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
+.textComic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  z-index: 99;
-  margin-top: 1rem;
-
-  img {
-    max-width: 500px;
-    max-height: 450px
-  }
-}
-
-.text{
-  @include text($secondary, 1rem, 500);
-  max-width: 600px;
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-  text-align: center;
-
 }
 
 .back-button {
