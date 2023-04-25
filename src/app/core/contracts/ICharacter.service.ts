@@ -12,4 +12,5 @@ export interface ICharacterService {
   ): Observable<CharacterApiResponse>;
   getCharacterById(id: number): Observable<CharacterApiResponse>;
   getCharacterForHeader(): Observable<CharacterApiResponse>;
+  searchCharacter(query:string): Observable<CharacterApiResponse>;
 }
