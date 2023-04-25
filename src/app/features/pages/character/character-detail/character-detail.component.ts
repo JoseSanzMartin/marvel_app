@@ -18,13 +18,14 @@ export class CharacterDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get("id");
-    if (this.id) {
+
+    this.route.params.subscribe((params) => {
+      const id = params["id"];
       this.characterService
-        .getCharacterById(parseInt(this.id, 10))
+        .getCharacterById(parseInt(id, 10))
         .subscribe((response) => {
-          this.charSelected = response.data.results[0];
+          this.charSelected= response.data.results[0];
         });
-    }
+    });
   }
 }

@@ -6,6 +6,9 @@ import { ComicCardComponent } from "./comic-card/comic-card.component";
 import { BackButtonComponent } from "./back-button/back-button.component";
 import { SpinnerComponent } from "./spinner/spinner.component";
 import { CarouselComponent } from "./carousel/carousel.component";
+import { DetailNameComponent } from './detail-name/detail-name.component';
+import { DetailImageComponent } from './detail-image/detail-image.component';
+import { ImagesPipe } from './pipes/images.pipe';
 
 @NgModule({
   declarations: [
@@ -14,6 +17,9 @@ import { CarouselComponent } from "./carousel/carousel.component";
     BackButtonComponent,
     SpinnerComponent,
     CarouselComponent,
+    DetailNameComponent,
+    DetailImageComponent,
+    ImagesPipe,
   ],
   imports: [CommonModule, MaterialModule],
   exports: [
@@ -23,6 +29,9 @@ import { CarouselComponent } from "./carousel/carousel.component";
     BackButtonComponent,
     SpinnerComponent,
     CarouselComponent,
+    DetailNameComponent,
+    DetailImageComponent,
+    ImagesPipe
   ],
 })
 export class SharedModule {}

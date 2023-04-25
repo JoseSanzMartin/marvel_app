@@ -1,0 +1,20 @@
+@import 'src/styles.scss';
+
+
+.image-top {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 99;
+  margin-top: 5rem;
+
+  img {
+    max-width: 500px;
+    max-height: 450px
+  }
+}
+
+
