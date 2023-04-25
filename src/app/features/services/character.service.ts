@@ -16,7 +16,7 @@ export class CharacterService implements ICharacterService {
 
   constructor(private http: HttpClient) {}
 
-  searchCharacter(query : string){
+  searchCharacter(query: string) {
     return this.http.get<CharacterApiResponse>(
       `${this.url}/characters?nameStartsWith=${query}`
     );
