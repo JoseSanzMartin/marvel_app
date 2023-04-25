@@ -20,4 +20,15 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('should display title and subtitle', () => {
+    const title = fixture.nativeElement.querySelector('#title');
+    const subtitle = fixture.nativeElement.querySelector('#subtitle');
+
+    expect(title.textContent).toContain('marvel');
+    expect(subtitle.textContent).toContain('studios');
+  });
+
+
 });
