@@ -49,7 +49,7 @@ export class CharactersComponent implements OnInit {
     if (search != null && search != "") {
       this.characterService.searchCharacter(search).subscribe((response) => {
         this.searchCharacters = response.data.results;
-        console.log(response.data.results);
+        console.log(response);
       });
     } else {
       this.searchCharacters = [];
