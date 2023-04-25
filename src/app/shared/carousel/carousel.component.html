@@ -1,0 +1,13 @@
+<div class="carousel">
+  <ng-container *ngFor="let comicSelected of comicList; index as i">
+    <app-comic-card
+      *ngIf="i === carouselComicsSlideIndex"
+      [comic]="comicSelected"
+      class="carousel-slide"
+    ></app-comic-card>
+  </ng-container>
+  <div class="carousel-controls">
+    <button mat-raised-button (click)="previousSlide()">Previous</button>
+    <button mat-raised-button (click)="nextSlide()">Next</button>
+  </div>
+</div>

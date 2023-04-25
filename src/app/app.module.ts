@@ -18,7 +18,7 @@ import { SharedModule } from "./shared/shared.module";
     BrowserAnimationsModule,
     CoreModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiHashInterceptor, multi: true },

@@ -19,46 +19,13 @@
   </div>
   <div class="container-bestSelling-comics">
     <h2 class="tittle-bestSelling">BEST SELLING DIGITAL COMICS</h2>
-    <div class="carousel">
-      <ng-container
-        *ngFor="let bestSellingComics of bestSellingComics; index as i"
-      >
-        <app-comic-card
-          *ngIf="i === bestSellingSlideIndex"
-          [comic]="bestSellingComics"
-          class="carousel-slide"
-        ></app-comic-card>
-      </ng-container>
-      <div class="carousel-controls">
-        <button mat-raised-button (click)="previousSlide('bestSelling')">
-          Previous
-        </button>
-        <button mat-raised-button (click)="nextSlide('bestSelling')">
-          Next
-        </button>
-      </div>
-    </div>
+    <app-carousel [comicList]="bestSellingComics"></app-carousel>
   </div>
   <div class="container-random-comics">
     <h2 class="tittle-randomComics">Random Comics</h2>
-    <div class="carousel">
-      <ng-container *ngFor="let randomComic of randomComics; index as i">
-        <app-comic-card
-          *ngIf="i === randomComicsSlideIndex"
-          [comic]="randomComic"
-          class="carousel-slide"
-        ></app-comic-card>
-      </ng-container>
-      <div class="carousel-controls">
-        <button mat-raised-button (click)="previousSlide('randomComics')">
-          Previous
-        </button>
-        <button mat-raised-button (click)="nextSlide('randomComics')">
-          Next
-        </button>
-      </div>
-    </div>
-    <app-back-button class="back-button flex text-center justify-content-center pb-4"></app-back-button>
+    <app-carousel [comicList]="randomComics"></app-carousel>
+    <app-back-button
+      class="back-button flex text-center justify-content-center pb-4"
+    ></app-back-button>
   </div>
-
 </div>
