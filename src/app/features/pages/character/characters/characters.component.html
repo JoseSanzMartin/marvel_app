@@ -1,10 +1,27 @@
+<div class="container-top">
 
-<div class="container-top ">
-  <div class=" container-selector">
-    <div class="flex selector mt-4">
+  <div class="container-selector">
+    <div class="flex selector mt-4 justify-content-end mr-5 mb-0">
+      <form [formGroup]="searchData">
+        <mat-form-field class="example-full-width mr-4">
+          <mat-label>Search by name</mat-label>
+          <input
+            matInput
+            placeholder="Captain-America.."
+            type="text"
+            formControlName="name"
+            (keyup)="onKeyPress()"
+            #input
+          />
+          <button *ngIf="input.value" matSuffix mat-icon-button aria-label="Clear"
+          (click)="input.value = ''; searchData.value.name = ''; onKeyPress()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
       <mat-form-field color="warn">
         <mat-label>Select an option</mat-label>
-        <mat-select [(value)]="selected"  (valueChange)="setOrder(selected)">
+        <mat-select [(value)]="selected" (valueChange)="setOrder(selected)">
           <mat-option value="asc">A-Z</mat-option>
           <mat-option value="desc">Z-A</mat-option>
         </mat-select>
@@ -13,25 +30,49 @@
   </div>
 
   <div class="container">
-    <div class="grid justify-content-center container-char-45 p-4">
+    <div
+      class="grid justify-content-center container-char-45 px-4 pb-4"
+      *ngIf="searchCharacters.length == 0; else search"
+    >
       <div
         class="p-col-1 p-col-3 p-md-4 p-lg-6 py-2"
-        *ngFor=" let character of characters | paginate : {
+        *ngFor="
+          let character of characters
+            | paginate
+              : {
                   itemsPerPage: itemsPerPage,
                   currentPage: currentPage,
-                  totalItems: totalItems } ">
-
+                  totalItems: totalItems
+                }
+        "
+      >
         <app-character-card
           [character]="character"
-          class="flex-column cursor-pointer">
+          class="flex-column cursor-pointer"
+        >
         </app-character-card>
-
       </div>
     </div>
   </div>
 
+  <<ng-template #search>
+    <div class="grid justify-content-center container-char-45 p-4">
+      <div
+        class="p-col-1 p-col-3 p-md-4 p-lg-6 py-2"
+        *ngFor="let character of searchCharacters"
+      >
+        <app-character-card
+          [character]="character"
+          class="flex-column cursor-pointer"
+        >
+        </app-character-card>
+      </div>
+    </div>
+  </ng-template>
+
   <div class="bottom d-flex flex-row justify-content-center">
     <pagination-controls
+      *ngIf="searchCharacters.length == 0"
       class="pagination d-flex justify-content-center"
       previousLabel="Prev"
       nextLabel="Next"
@@ -43,5 +84,4 @@
 
     <app-back-button class="back-button"></app-back-button>
   </div>
-
 </div>
