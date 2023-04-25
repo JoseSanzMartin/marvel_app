@@ -24,7 +24,9 @@ export class ComicService implements IComicService {
   }
 
   getBestSelling(): Observable<ComicApiResponse> {
-    return this.http.get<ComicApiResponse>(`${this.url}comics?limit=20`);
+    return this.http.get<ComicApiResponse>(
+      `${this.url}comics?format=digital%20comic&orderBy=focDate&limit=20`
+    );
   }
 
   getRandomComics(): Observable<ComicApiResponse> {
