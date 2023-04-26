@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { Router } from "@angular/router";
-import { Comic } from "src/app/core/models/IComic";
+import { Comic } from "src/app/core/models/DTOComic";
 
 @Component({
   selector: "app-comic-card",

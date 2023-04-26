@@ -1,11 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { CoreService } from "../../services/core.service";
 import { Router } from "@angular/router";
-import { Buttons } from "./Ibutton";
-import { CharacterService } from '../../../features/services/character.service';
-import { Character } from "../../models/ICharacter";
+import { Buttons } from "../../models/DTOButton";
+import { CharacterService } from "../../../features/services/character.service";
+import { Character } from "../../models/DTOCharacter";
 import { ComicService } from "src/app/features/services/comic.service";
-import { Comic } from "../../models/IComic";
+import { Comic } from "../../models/DTOComic";
 
 @Component({
   selector: "app-header",
@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   sectionsComic: string[] = [];
   sectionsCharacter: string[] = [];
   characters: Character[] = [];
-  comics : Comic[] = [];
+  comics: Comic[] = [];
 
   showComicContainer = false;
   showCharacterContainer = false;
@@ -27,7 +27,8 @@ export class HeaderComponent implements OnInit {
     private coreService: CoreService,
     private router: Router,
     private charService: CharacterService,
-    private comService : ComicService) {}
+    private comService: ComicService
+  ) {}
 
   ngOnInit(): void {
     this.buttons = this.coreService.getHeaderButtons();
@@ -46,17 +47,15 @@ export class HeaderComponent implements OnInit {
   }
 
   takeCharacters() {
-    this.charService.getCharacterForHeader()
-    .subscribe((res) => {
+    this.charService.getCharacterForHeader().subscribe((res) => {
       this.characters = res.data.results;
-    });}
+    });
+  }
 
-  takeComics(){
-    this.comService.getComics().subscribe(
-      (res) => {
-        this.comics = res.data.results;
-      }
-    );
+  takeComics() {
+    this.comService.getComics().subscribe((res) => {
+      this.comics = res.data.results;
+    });
   }
 
   toggleContainer(name: string) {
@@ -79,7 +78,7 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleLeave(container: string) {
-    if (container === 'comics') {
+    if (container === "comics") {
       setTimeout(() => {
         if (!this.showCharacterContainer) {
           this.showComicContainer = false;
@@ -93,6 +92,4 @@ export class HeaderComponent implements OnInit {
       }, 200);
     }
   }
-
 }
-
