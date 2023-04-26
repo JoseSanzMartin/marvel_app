@@ -1,1 +1,15 @@
-<p>login works!</p>
+<div class="top">
+
+  <form class="formGroup" [formGroup]="loginForm" (ngSubmit)="login()">
+    <mat-form-field appearance="fill">
+      <mat-label>Public key</mat-label>
+      <input matInput formControlName="public">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Private key</mat-label>
+      <input matInput formControlName="private">
+    </mat-form-field>
+    <button mat-raised-button type="submit">Load more</button>
+  </form>
+
+</div>
