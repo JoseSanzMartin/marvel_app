@@ -27,10 +27,10 @@
           </svg>
         </div>
       </div>
-      <p
-        class="flex-column align-items-center justify-content-center mt-2 pl-4 user-name hidden md:block"
+      <p class="flex-column align-items-center justify-content-center mt-2 pl-4 user-name hidden md:block cursor-pointer"
+      routerLink="/login"
       >
-        USER
+        LOGIN
       </p>
     </div>
 
@@ -83,50 +83,77 @@
     </div>
   </mat-toolbar>
 
-
-
   <div class="sub-menu flex flex-row align-items-center justify-content-center">
-    <div class="flex flex-row align-items-center menu-names"
-        *ngFor="let b of buttons; let i = index">
-      <span class="buttons px-3 py-3"
-            (mouseover)="toggleContainer(b.name)"
-            (click)="goTo(b.name)">
-            {{ b.name | uppercase }}
+    <div
+      class="flex flex-row align-items-center menu-names"
+      *ngFor="let b of buttons; let i = index"
+    >
+      <span
+        class="buttons px-3 py-3"
+        (mouseover)="toggleContainer(b.name)"
+        (click)="goTo(b.name)"
+      >
+        {{ b.name | uppercase }}
       </span>
     </div>
   </div>
 
-
   <div class="container-top">
-  <div class="container-custom pb-3" *ngIf="showComicContainer" (mouseover)="toggleHover('comics')" (mouseleave)="toggleLeave('comics')">
-    <div class="flex flex-row align-items-center justify-content-center">
-      <ul class="pl-0 text-center list" *ngFor="let item of sectionsComic">
-        <li class="px-2 link cursor-pointer">{{ item | uppercase }}</li>
-      </ul>
+    <div
+      class="container-custom pb-3"
+      *ngIf="showComicContainer"
+      (mouseover)="toggleHover('comics')"
+      (mouseleave)="toggleLeave('comics')"
+    >
+      <div class="flex flex-row align-items-center justify-content-center">
+        <ul class="pl-0 text-center list" *ngFor="let item of sectionsComic">
+          <li class="px-2 link cursor-pointer">{{ item | uppercase }}</li>
+        </ul>
+      </div>
+      <h3 class="title text-center pt-4">LATEST COMICS</h3>
+      <div
+        class="div"
+        class="flex flex-row justify-content-center pb-4 pl-0 ml-0 pr-2"
+      >
+        <div
+          *ngFor="let comic of comics.slice(0, 6)"
+          class="flex flex-column pt-0"
+        >
+          <app-comic-card
+            [comic]="comic"
+            class="cursor-pointer px-2"
+          ></app-comic-card>
+        </div>
+      </div>
     </div>
-    <h3 class="title text-center pt-4">LATEST COMICS</h3>
-    <div class="div" class="flex flex-row justify-content-center pb-4 pl-0 ml-0 pr-2">
-      <div *ngFor="let comic of comics.slice(0,6)" class="flex flex-column pt-0">
-        <app-comic-card [comic]="comic" class="cursor-pointer px-2"></app-comic-card>
+
+    <div
+      class="container-custom"
+      *ngIf="showCharacterContainer"
+      (mouseover)="toggleHover('characters')"
+      (mouseleave)="toggleLeave('characters')"
+    >
+      <div class="flex flex-row align-items-center justify-content-center">
+        <ul
+          class="pl-0 text-center list"
+          *ngFor="let item of sectionsCharacter"
+        >
+          <li class="px-2 link cursor-pointer">{{ item | uppercase }}</li>
+        </ul>
+      </div>
+      <h3 class="title text-center py-4">TRENDING IN THE UNIVERSE</h3>
+
+      <div
+        class="div"
+        class="flex flex-row justify-content-center pb-4 pl-0 ml-0 pr-2"
+      >
+        <div *ngFor="let character of characters" class="flex flex-column">
+          <app-character-card
+            [character]="character"
+            class="cursor-pointer"
+          ></app-character-card>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="container-custom" *ngIf="showCharacterContainer" (mouseover)="toggleHover('characters')" (mouseleave)="toggleLeave('characters')">
-    <div class="flex flex-row align-items-center justify-content-center">
-      <ul class="pl-0 text-center list" *ngFor="let item of sectionsCharacter">
-        <li class="px-2 link cursor-pointer">{{ item | uppercase }}</li>
-      </ul>
-    </div>
-    <h3 class="title text-center py-4">TRENDING IN THE UNIVERSE</h3>
-
-    <div class="div" class="flex flex-row justify-content-center pb-4 pl-0 ml-0 pr-2">
-      <div *ngFor="let character of characters" class="flex flex-column">
-        <app-character-card [character]="character" class="cursor-pointer"></app-character-card>
-      </div>
-    </div>
-
-  </div>
-  </div>
-
-
+</div>
