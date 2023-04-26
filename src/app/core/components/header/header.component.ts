@@ -92,4 +92,12 @@ export class HeaderComponent implements OnInit {
       }, 200);
     }
   }
+
+  isLoggedIn() {
+    return this.coreService.isLoggedIn();
+  }
+
+  logOut() {
+    return this.coreService.logOut();
+  }
 }

@@ -15,7 +15,6 @@ export class AuthGuard {
     | UrlTree {
     if (!this.coreService.isLoggedIn()) {
       this.router.navigate(["login"]);
-      console.log("Ha entrado");
       return false;
     }
     return true;

@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs";
-import { SpinnerService } from "src/app/shared/service/spinner.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-home",
@@ -8,14 +7,12 @@ import { SpinnerService } from "src/app/shared/service/spinner.service";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-
-    const element  = document.getElementById("animate");
-
+    const element = document.getElementById("animate");
 
     if (element) {
-
       element.addEventListener(
         "click",
         function (e) {
@@ -27,5 +24,8 @@ export class HomeComponent implements OnInit {
         false
       );
     }
+  }
+  goTo() {
+    this.router.navigate(["/login"]);
   }
 }

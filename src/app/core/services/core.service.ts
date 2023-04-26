@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { map, tap } from "rxjs";
 import { environment } from "src/environments/environment.development";
 import { CharacterApiResponse } from "../models/DTOCharacterAPIResponse";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root",
@@ -28,7 +29,7 @@ export class CoreService {
     "explore all",
   ];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   getHeaderButtons() {
     return this.buttons;
@@ -71,5 +72,11 @@ export class CoreService {
   isLoggedIn(): boolean {
     const token = localStorage.getItem("hash");
     return !!token;
+  }
+
+  logOut(): void {
+    localStorage.removeItem("hash");
+    sessionStorage.removeItem("apikey");
+    this.router.navigate(["/login"]);
   }
 }
