@@ -1,5 +1,5 @@
 import { Observable } from "rxjs";
-import { CharacterApiResponse } from "src/app/core/models/ICharacter";
+import { CharacterApiResponse } from "src/app/core/models/DTOCharacterAPIResponse";
 
 export interface ICharacterService {
   loadPage(
@@ -12,5 +12,5 @@ export interface ICharacterService {
   ): Observable<CharacterApiResponse>;
   getCharacterById(id: number): Observable<CharacterApiResponse>;
   getCharacterForHeader(): Observable<CharacterApiResponse>;
-  searchCharacter(query:string): Observable<CharacterApiResponse>;
+  searchCharacter(query: string): Observable<CharacterApiResponse>;
 }

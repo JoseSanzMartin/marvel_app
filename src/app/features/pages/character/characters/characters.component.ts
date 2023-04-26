@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 import { CharacterService } from "src/app/features/services/character.service";
 import { Component, OnInit } from "@angular/core";
-import { Character } from "src/app/core/models/ICharacter";
+import { Character } from "src/app/core/models/DTOCharacter";
 import {
   FormBuilder,
   FormControl,

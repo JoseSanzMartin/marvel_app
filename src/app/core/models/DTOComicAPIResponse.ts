@@ -1,15 +1,5 @@
-import { Price } from "./IPrice";
+import { Comic } from "./DTOComic";
 
-export interface Comic {
-  id: number;
-  title: string;
-  description: string;
-  prices: Price[];
-  thumbnail: {
-    path: string;
-    extension: string;
-  };
-}
 export interface ComicApiResponse {
   code: number;
   status: string;

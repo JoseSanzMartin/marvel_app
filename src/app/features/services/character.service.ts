@@ -1,9 +1,10 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment.development";
-import { CharacterApiResponse } from "src/app/core/models/ICharacter";
+
 import { ICharacterService } from "../../core/contracts/ICharacter.service";
 import { Observable } from "rxjs";
+import { CharacterApiResponse } from "src/app/core/models/DTOCharacterAPIResponse";
 
 @Injectable({
   providedIn: "root",
