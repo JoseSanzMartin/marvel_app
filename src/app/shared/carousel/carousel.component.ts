@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { Comic } from "src/app/core/models/IComic";
+import { Comic } from "src/app/core/models/DTOComic";
 
 @Component({
   selector: "app-carousel",

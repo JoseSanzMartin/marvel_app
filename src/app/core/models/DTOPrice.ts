@@ -1,4 +1,4 @@
-import { PriceType } from "./IPriceType";
+import { PriceType } from "./DTOPriceType";
 
 export interface Price {
   type?: PriceType;

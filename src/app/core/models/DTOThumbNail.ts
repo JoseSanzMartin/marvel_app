@@ -1,4 +1,4 @@
-import { Extension } from "./EExtension";
+import { Extension } from "./DTOExtension";
 
 export interface Thumbnail {
   path?: string;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { Character } from "src/app/core/models/ICharacter";
+import { Character } from "src/app/core/models/DTOCharacter";
 import { CharacterService } from "src/app/features/services/character.service";
 
 @Component({
@@ -10,7 +10,7 @@ import { CharacterService } from "src/app/features/services/character.service";
 })
 export class CharacterDetailComponent implements OnInit {
   charSelected: Character | null = null;
-  id! : string | null;
+  id!: string | null;
 
   constructor(
     private characterService: CharacterService,
@@ -18,13 +18,12 @@ export class CharacterDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
     this.route.params.subscribe((params) => {
       const id = params["id"];
       this.characterService
         .getCharacterById(parseInt(id, 10))
         .subscribe((response) => {
-          this.charSelected= response.data.results[0];
+          this.charSelected = response.data.results[0];
         });
     });
   }
