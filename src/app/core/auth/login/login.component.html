@@ -1,6 +1,7 @@
 <div class="top">
 
   <form class="formGroup" [formGroup]="loginForm" (ngSubmit)="login()">
+    <img id="colored" src="http://preview.ibb.co/fhn2BG/marvel.jpg" width="210" class="pb-3">
     <mat-form-field appearance="fill">
       <mat-label>Public key</mat-label>
       <input matInput formControlName="public">
@@ -9,7 +10,7 @@
       <mat-label>Private key</mat-label>
       <input matInput formControlName="private">
     </mat-form-field>
-    <button mat-raised-button type="submit">Load more</button>
+    <button mat-raised-button class="button-login" type="submit">ENTER</button>
   </form>
 
 </div>
