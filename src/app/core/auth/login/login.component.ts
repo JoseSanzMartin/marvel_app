@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { hash } from "src/app/core/utils/md5";
 import { environment } from "src/environments/environment";
+import { CoreService } from "../../services/core.service";
 
 @Component({
   selector: "app-login",
@@ -10,9 +11,10 @@ import { environment } from "src/environments/environment";
 })
 export class LoginComponent {
   hash = "";
-  ts = 1;
+  ts = "1";
+  apiKey: string = "";
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private coreService: CoreService) {}
 
   loginForm = this.fb.group({
     private: ["6b0662f26d337b15cb1d6361b7187c52a57c1505", Validators.required],
@@ -24,8 +26,12 @@ export class LoginComponent {
       this.hash = hash(
         `${this.ts}${this.loginForm.value.private}${this.loginForm.value.public}`
       );
-      environment.hash = this.hash;
-      environment.apiKey = this.loginForm.value.public as string;
+      this.apiKey = this.loginForm.value.public as string;
+    }
+    if (this.coreService.getCharacterLogin(this.ts, this.apiKey, this.hash)) {
+      localStorage.setItem("hash", this.hash);
+      environment.apiKey = this.apiKey;
+      console.log("Ha pasado");
     }
   }
 }
