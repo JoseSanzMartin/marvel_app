@@ -19,6 +19,7 @@ export class CharactersComponent implements OnInit {
   private debouncer: Subject<string> = new Subject<string>();
   characters: Character[] = [];
   searchCharacters: Character[] = [];
+
   currentPage: number = 1;
   itemsPerPage: number = 36;
   totalItems: number = 0;

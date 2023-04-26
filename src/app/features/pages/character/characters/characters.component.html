@@ -55,8 +55,9 @@
     </div>
   </div>
 
-  <<ng-template #search>
-    <div class="grid justify-content-center container-char-45 p-4">
+  <ng-template #search>
+    <div class="grid justify-content-center container-char-45 p-4"
+         *ngIf="searchCharacter.length > 0; else noResult">
       <div
         class="p-col-1 p-col-3 p-md-4 p-lg-6 py-2"
         *ngFor="let character of searchCharacters"
@@ -68,6 +69,11 @@
         </app-character-card>
       </div>
     </div>
+    <ng-template #noResult>
+      <div class="no-result">
+        <h1 class="text-center">No results found</h1>
+      </div>
+    </ng-template>
   </ng-template>
 
   <div class="bottom d-flex flex-row justify-content-center">
