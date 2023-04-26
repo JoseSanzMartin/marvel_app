@@ -27,10 +27,19 @@
           </svg>
         </div>
       </div>
-      <p class="flex-column align-items-center justify-content-center mt-2 pl-4 user-name hidden md:block cursor-pointer"
-      routerLink="/login"
+      <p
+        class="flex-column align-items-center justify-content-center mt-2 pl-4 user-name hidden md:block cursor-pointer"
+        routerLink="/login"
+        *ngIf="!isLoggedIn()"
       >
         LOGIN
+      </p>
+      <p
+        class="flex-column align-items-center justify-content-center mt-2 pl-4 user-name hidden md:block cursor-pointer"
+        (click)="logOut()"
+        *ngIf="isLoggedIn()"
+      >
+        LOGOUT
       </p>
     </div>
 
@@ -98,7 +107,7 @@
     </div>
   </div>
 
-  <div class="container-top">
+  <div class="container-top" *ngIf="isLoggedIn()">
     <div
       class="container-custom pb-3"
       *ngIf="showComicContainer"

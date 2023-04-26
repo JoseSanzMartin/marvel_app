@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { hash } from "src/app/core/utils/md5";
 import { CoreService } from "../../services/core.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -13,7 +14,11 @@ export class LoginComponent {
   ts = "1";
   apiKey: string = "";
 
-  constructor(private fb: FormBuilder, private coreService: CoreService) {}
+  constructor(
+    private fb: FormBuilder,
+    private coreService: CoreService,
+    private router: Router
+  ) {}
 
   loginForm = this.fb.group({
     private: ["6b0662f26d337b15cb1d6361b7187c52a57c1505", Validators.required],
@@ -34,9 +39,7 @@ export class LoginComponent {
             sessionStorage.setItem("apikey", this.apiKey);
           }
         });
+      this.router.navigate(["home"]);
     }
-
-    /*localStorage.setItem("hash", this.hash);
-    sessionStorage.setItem("apikey", this.apiKey);*/
   }
 }
