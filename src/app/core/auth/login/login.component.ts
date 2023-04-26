@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { hash } from "src/app/core/utils/md5";
-import { environment } from "src/environments/environment";
 import { CoreService } from "../../services/core.service";
 
 @Component({
@@ -27,11 +26,17 @@ export class LoginComponent {
         `${this.ts}${this.loginForm.value.private}${this.loginForm.value.public}`
       );
       this.apiKey = this.loginForm.value.public as string;
+      this.coreService
+        .getCharacterLogin(this.ts, this.apiKey, this.hash)
+        .subscribe((res) => {
+          if (res) {
+            localStorage.setItem("hash", this.hash);
+            sessionStorage.setItem("apikey", this.apiKey);
+          }
+        });
     }
-    if (this.coreService.getCharacterLogin(this.ts, this.apiKey, this.hash)) {
-      localStorage.setItem("hash", this.hash);
-      environment.apiKey = this.apiKey;
-      console.log("Ha pasado");
-    }
+
+    /*localStorage.setItem("hash", this.hash);
+    sessionStorage.setItem("apikey", this.apiKey);*/
   }
 }

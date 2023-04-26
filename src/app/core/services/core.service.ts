@@ -1,6 +1,6 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map } from "rxjs";
+import { map, tap } from "rxjs";
 import { environment } from "src/environments/environment.development";
 import { CharacterApiResponse } from "../models/DTOCharacterAPIResponse";
 
@@ -47,17 +47,25 @@ export class CoreService {
   }
 
   getCharacterLogin(ts: string, apikey: string, hash: string) {
+    console.log(ts, apikey, hash);
+    const paramsCall = new HttpParams()
+      .set("ts", ts)
+      .set("hash", hash)
+      .set("apikey", apikey);
+
     return this.http
-      .get<CharacterApiResponse>(`${this.url}characters${ts}${apikey}${hash}`)
+      .get<CharacterApiResponse>(`${this.url}characters?${paramsCall}`)
       .pipe(
+        tap((resp) => console.log(resp)),
         map((resp) => {
-          this.checkCall(resp.status);
+          return this.checkCall(resp.status);
         })
       );
   }
 
   checkCall(resp: string): boolean {
-    return resp == "ok" ? true : false;
+    console.log(resp);
+    return resp == "Ok" ? true : false;
   }
 
   isLoggedIn(): boolean {

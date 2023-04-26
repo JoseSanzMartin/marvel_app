@@ -6,7 +6,6 @@ import {
   HttpInterceptor,
 } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { environment } from "src/environments/environment";
 
 @Injectable()
 export class ApiHashInterceptor implements HttpInterceptor {
@@ -14,13 +13,20 @@ export class ApiHashInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    request = request.clone({
-      setParams: {
-        ts: "1",
-        apikey: environment.apiKey,
-        hash: localStorage.getItem("hash") as string,
-      },
-    });
-    return next.handle(request);
+    const apiKey = sessionStorage.getItem("apikey");
+    console.log(apiKey);
+    if (apiKey) {
+      console.log(apiKey);
+      request = request.clone({
+        setParams: {
+          ts: "1",
+          apikey: sessionStorage.getItem("apikey") as string,
+          hash: localStorage.getItem("hash") as string,
+        },
+      });
+      return next.handle(request);
+    } else {
+      return next.handle(request);
+    }
   }
 }
