@@ -59,4 +59,9 @@ export class CoreService {
   checkCall(resp: string): boolean {
     return resp == "ok" ? true : false;
   }
+
+  isLoggedIn(): boolean {
+    const token = localStorage.getItem("hash");
+    return !!token;
+  }
 }
