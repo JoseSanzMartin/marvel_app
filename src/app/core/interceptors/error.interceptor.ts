@@ -6,14 +6,13 @@ import {
   HttpRequest,
   HttpErrorResponse,
 } from "@angular/common/http";
-import { Observable, throwError, EMPTY } from "rxjs";
+import { Observable, throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
-import { Router } from "@angular/router";
 import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
-  constructor(private router: Router, private snackBar: MatSnackBar) {}
+  constructor(private snackBar: MatSnackBar) {}
 
   intercept(
     req: HttpRequest<any>,
@@ -30,7 +29,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         } else {
           console.error(`Error ${error.status}: ${error.message}`);
         }
-        this.router.navigate(["/home"], { replaceUrl: true });
         this.showSnackbar(errorMessage);
         return throwError(() => error);
       })
