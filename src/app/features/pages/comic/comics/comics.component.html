@@ -10,21 +10,23 @@
         <app-comic-card
           [comic]="comic"
           class="flex-column cursor-pointer"
+          (load)="onImageLoad()"
         ></app-comic-card>
       </div>
     </div>
   </div>
-  <div class="load-more-container" *ngIf="showLoadMoreButton">
+  <div class="load-more-container" *ngIf="showLoadMoreButton && !isLoading">
     <button mat-raised-button (click)="loadMoreComics()">Load more</button>
   </div>
-  <div class="container-bestSelling-comics">
+  <div class="container-bestSelling-comics" *ngIf="!isLoading">
     <h2 class="tittle-bestSelling">BEST SELLING DIGITAL COMICS</h2>
     <app-carousel [comicList]="bestSellingComics"></app-carousel>
   </div>
-  <div class="container-random-comics">
+  <div class="container-random-comics" *ngIf="!isLoading">
     <h2 class="tittle-randomComics">Random Comics</h2>
     <app-carousel [comicList]="randomComics"></app-carousel>
     <app-back-button
+      *ngIf="!isLoading"
       class="back-button flex text-center justify-content-center pb-4"
     ></app-back-button>
   </div>
