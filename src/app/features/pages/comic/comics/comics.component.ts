@@ -15,6 +15,7 @@ export class ComicsComponent implements OnInit {
   loadMoreStep: number = 12;
   showLoadMoreButton: boolean = true;
   isLoading = true;
+  loadedImagesCount = 0;
 
   constructor(private comicService: ComicService) {}
 
@@ -39,6 +40,9 @@ export class ComicsComponent implements OnInit {
   }
 
   onImageLoad() {
-    this.isLoading = false;
+    this.loadedImagesCount++;
+    if (this.loadedImagesCount === this.displayedComics) {
+      this.isLoading = false;
+    }
   }
 }
