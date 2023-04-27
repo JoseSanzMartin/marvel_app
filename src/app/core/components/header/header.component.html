@@ -92,7 +92,7 @@
     </div>
   </mat-toolbar>
 
-  <div class="sub-menu flex flex-row align-items-center justify-content-center">
+  <div class="sub-menu flex flex-row align-items-center justify-content-center"  *ngIf="isLoggedIn()">
     <div
       class="flex flex-row align-items-center menu-names"
       *ngFor="let b of buttons; let i = index"
@@ -107,7 +107,7 @@
     </div>
   </div>
 
-  <div class="container-top" *ngIf="isLoggedIn()">
+  <div class="container-top"  *ngIf="isLoggedIn()">
     <div
       class="container-custom pb-3"
       *ngIf="showComicContainer"

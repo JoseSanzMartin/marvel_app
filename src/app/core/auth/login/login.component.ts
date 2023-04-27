@@ -21,9 +21,10 @@ export class LoginComponent {
   ) {}
 
   loginForm = this.fb.group({
-    private: ["6b0662f26d337b15cb1d6361b7187c52a57c1505", Validators.required],
-    public: ["963bb610e7f5f09a84186e125f680647", Validators.required],
+    private: ["8a86a22939ba7194486941d71013d571397602ad", [Validators.required, Validators.minLength(40)]],
+    public: ["8705c48bfb960f02afebbce74ba690bb", [Validators.required, Validators.minLength(30)]],
   });
+
 
   login() {
     if (this.loginForm.valid) {
