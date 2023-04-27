@@ -102,7 +102,7 @@ container-top {
   height: 40px;
   display: block;
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     display: none !important;
   }
 }
@@ -121,7 +121,7 @@ container-top {
   @include text($secondary, 12px, 600);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .mat-tool {
     @include border(transparent, 0px);
   }

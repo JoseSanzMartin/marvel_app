@@ -48,7 +48,6 @@ export class CoreService {
   }
 
   getCharacterLogin(ts: string, apikey: string, hash: string) {
-    console.log(ts, apikey, hash);
     const paramsCall = new HttpParams()
       .set("ts", ts)
       .set("hash", hash)
@@ -57,7 +56,6 @@ export class CoreService {
     return this.http
       .get<CharacterApiResponse>(`${this.url}characters?${paramsCall}`)
       .pipe(
-        tap((resp) => console.log(resp)),
         map((resp) => {
           return this.checkCall(resp.status);
         })
@@ -65,7 +63,6 @@ export class CoreService {
   }
 
   checkCall(resp: string): boolean {
-    console.log(resp);
     return resp == "Ok" ? true : false;
   }
 

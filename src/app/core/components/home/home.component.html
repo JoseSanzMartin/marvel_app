@@ -1,9 +1,20 @@
-<div class="container">
+<div class="container" *ngIf="!islogin(); else logged">
   <div class="wrapper run-animation" id="animate">
-    <div class="logo" (click)="goTo()">
+    <div class="logo" (click)="goTo('login')">
       <span id="title" class="marvel">marvel</span>
       <span id="subtitle" class="studios">studios</span>
     </div>
   </div>
   <div class="images"></div>
 </div>
+
+<ng-template #logged>
+  <div class="image-container">
+    <div class="image-wrapper characters flex align-items-center justify-content-center  cursor-pointer" (click)="goTo('characters')">
+      <h2 class="char">CHARACTERS</h2>
+    </div>
+    <div class="image-wrapper comics  flex align-items-center justify-content-center cursor-pointer" (click)="goTo('comics')">
+      <h2 class="com">COMICS</h2>
+    </div>
+  </div>
+</ng-template>

@@ -14,9 +14,8 @@ export class ApiHashInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     const apiKey = sessionStorage.getItem("apikey");
-    console.log(apiKey);
+
     if (apiKey) {
-      console.log(apiKey);
       request = request.clone({
         setParams: {
           ts: "1",

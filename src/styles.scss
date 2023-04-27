@@ -36,6 +36,13 @@ $accent: #e62429;
   font-weight: $weight;
 }
 
+@mixin titles($color, $size, $weight) {
+  color: $color;
+  font-family: $marvel-font;
+  font-size: $size;
+  font-weight: $weight;
+}
+
 @mixin border($color, $width) {
   border: $width solid $color;
 }
