@@ -9,6 +9,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { ApiHashInterceptor } from "./core/interceptors/api-hash.interceptor";
 import { SpinnerInterceptor } from "./core/interceptors/spinner.interceptor";
 import { SharedModule } from "./shared/shared.module";
+import { HttpErrorInterceptor } from "./core/interceptors/error.interceptor";
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { SharedModule } from "./shared/shared.module";
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiHashInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })
