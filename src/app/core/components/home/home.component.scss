@@ -23,6 +23,7 @@
 .image-container {
   display: flex;
   height: 100vh;
+  margin: 0px;
 }
 
 .image-wrapper h2 {
@@ -254,5 +255,30 @@
   }
   100% {
     background-image: url('https://i.ytimg.com/vi/lhgrYaBmplY/maxresdefault.jpg');
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-wrapper {
+    width: 100%;
+    // height: auto;
+    // margin: 10px 0;
+  }
+
+  .image-wrapper h2{
+    font-size: 1.5rem;
+  }
+
+  .image-wrapper h2::before{
+    width: 200px;
+    height: 200px;
+    opacity: 1;
   }
 }
