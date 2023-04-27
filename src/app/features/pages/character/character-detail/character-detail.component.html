@@ -1,15 +1,5 @@
 <div *ngIf="charSelected">
   <app-back-button class="back-button pl-4"></app-back-button>
   <app-detail-image [imageC]="charSelected"></app-detail-image>
-
-  <div class="panel">
-    <h1 class="jj">
-      <span>{{ charSelected.name }}</span>
-    </h1>
-    <h1 class="jj">
-      <span>{{ charSelected.name }}</span>
-    </h1>
-
-    <p class="text px-2">{{ charSelected.description }}</p>
-  </div>
+  <app-detail-name [character]="charSelected"></app-detail-name>
 </div>

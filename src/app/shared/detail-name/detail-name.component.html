@@ -1,9 +1,20 @@
-<div class="panel" *ngIf="comic">
-  <h1 class="jj">
-    <span>{{ comic.title }}</span>
+<div class="panel" *ngIf="comic || character">
+  <h1 class="jj" *ngIf="comic">
+    <span>{{ comic | textDetail : 'title' }}</span>
   </h1>
-  <h1 class="jj">
-    <span>{{ comic.title }}</span>
+  <h1 class="jj" *ngIf="character">
+    <span>{{  character | textDetail : "name"  }}</span>
   </h1>
-  <p class="text px-2">{{comic.description}}</p>
+  <h1 class="jj" *ngIf="comic">
+    <span>{{ comic | textDetail : 'title' }}</span>
+  </h1>
+  <h1 class="jj" *ngIf="character">
+    <span>{{  character | textDetail : "name"  }}</span>
+  </h1>
+<div *ngIf="comic">
+  <p class="text px-2">{{ comic  | textDetail : "description"}}</p>
+</div>
+<div *ngIf="character">
+  <p class="text px-2">{{ character  | textDetail : "description"}}</p>
+</div>
 </div>

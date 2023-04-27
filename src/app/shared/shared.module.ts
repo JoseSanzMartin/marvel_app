@@ -9,6 +9,7 @@ import { CarouselComponent } from "./carousel/carousel.component";
 import { DetailNameComponent } from './detail-name/detail-name.component';
 import { DetailImageComponent } from './detail-image/detail-image.component';
 import { ImagesPipe } from './pipes/images.pipe';
+import { TextPipe } from './pipes/text.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ImagesPipe } from './pipes/images.pipe';
     DetailNameComponent,
     DetailImageComponent,
     ImagesPipe,
+    TextPipe,
   ],
   imports: [CommonModule, MaterialModule],
   exports: [

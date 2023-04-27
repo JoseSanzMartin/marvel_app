@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { map, tap } from "rxjs";
+import { map } from "rxjs";
 import { Comic } from "src/app/core/models/DTOComic";
 import { ComicService } from "src/app/features/services/comic.service";
 
@@ -9,19 +9,15 @@ import { ComicService } from "src/app/features/services/comic.service";
   templateUrl: "./comic-detail.component.html",
   styleUrls: ["./comic-detail.component.scss"],
 })
-export class ComicDetailComponent implements OnInit, OnDestroy {
-  comicImage: Comic | null = null;
-  comicTitle: Comic | null = null;
+export class ComicDetailComponent implements OnInit {
+  comicImage!: Comic;
+  comicTitle! : Comic;
 
   constructor(
     private comicService: ComicService,
     private route: ActivatedRoute
   ) {}
 
-  ngOnDestroy(): void {
-    this.comicImage = null;
-    this.comicTitle = null;
-  }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -49,6 +45,7 @@ export class ComicDetailComponent implements OnInit, OnDestroy {
             description: response.description,
             prices: response.prices,
           } as Comic;
+          console.log(this.comicTitle);
         });
     });
   }
