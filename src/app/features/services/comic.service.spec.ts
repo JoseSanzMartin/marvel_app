@@ -5,7 +5,7 @@ import {
 } from "@angular/common/http/testing";
 
 import { ComicService } from "./comic.service";
-import { ComicApiResponse } from "../../core/models/DTOComic";
+import { ComicApiResponse } from "../../core/models/DTOComicAPIResponse";
 import { PriceType } from "src/app/core/models/DTOPriceType";
 
 describe("ComicService", () => {
