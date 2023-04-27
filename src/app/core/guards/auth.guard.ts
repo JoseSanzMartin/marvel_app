@@ -13,7 +13,6 @@ export class AuthGuard {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-
     if (!this.coreService.isLoggedIn()) {
       this.router.navigate(["login"]);
       return false;

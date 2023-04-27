@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Router } from "@angular/router";
 import { Comic } from "src/app/core/models/DTOComic";
 
@@ -9,8 +9,13 @@ import { Comic } from "src/app/core/models/DTOComic";
 })
 export class ComicCardComponent {
   @Input() comic!: Comic;
+  @Output() load: EventEmitter<void> = new EventEmitter();
 
   constructor(private router: Router) {}
+
+  onImageLoad() {
+    this.load.emit();
+  }
 
   navigateTo(id: number) {
     const url = id.toString();
