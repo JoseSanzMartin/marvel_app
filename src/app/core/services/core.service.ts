@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map } from "rxjs";
+import { BehaviorSubject, Observable, delay, map, of, tap } from 'rxjs';
 import { environment } from "src/environments/environment.development";
 import { CharacterApiResponse } from "../models/DTOCharacterAPIResponse";
 import { Router } from "@angular/router";
@@ -10,6 +10,9 @@ import { Router } from "@angular/router";
 })
 export class CoreService {
   url = environment.baseUrl;
+  callHeaderPhotos : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+
   buttons = [
     { name: "comics", isHidden: false },
     { name: "characters", isHidden: false },
@@ -59,6 +62,11 @@ export class CoreService {
         map((resp) => {
           return this.checkCall(resp.status);
         })
+      )
+      .pipe(
+        tap(resp => {
+          this.callHeaderPhotos.next(resp);
+        })
       );
   }
 
@@ -68,7 +76,11 @@ export class CoreService {
 
   isLoggedIn(): boolean {
     const token = localStorage.getItem("hash");
-    return !!token;
+    if (token) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   logOut(): void {

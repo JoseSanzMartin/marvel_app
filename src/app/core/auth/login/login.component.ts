@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
 export class LoginComponent {
   hash = "";
   ts = "1";
-  apiKey: string = "";
+  apiKey = "";
 
   constructor(
     private fb: FormBuilder,

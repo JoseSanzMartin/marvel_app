@@ -1,11 +1,12 @@
 import { Component, OnInit } from "@angular/core";
-import { CoreService } from "../../services/core.service";
+import { CoreService } from '../../services/core.service';
 import { Router } from "@angular/router";
 import { Buttons } from "../../models/DTOButton";
 import { CharacterService } from "../../../features/services/character.service";
 import { Character } from "../../models/DTOCharacter";
 import { ComicService } from "src/app/features/services/comic.service";
 import { Comic } from "../../models/DTOComic";
+import { delay } from 'rxjs';
 
 @Component({
   selector: "app-header",
@@ -34,8 +35,14 @@ export class HeaderComponent implements OnInit {
     this.buttons = this.coreService.getHeaderButtons();
     this.sectionsComic = this.coreService.getHeaderSections("comic");
     this.sectionsCharacter = this.coreService.getHeaderSections("character");
-    this.takeCharacters();
-    this.takeComics();
+    this.coreService.callHeaderPhotos.pipe(
+      delay(200)
+    ).subscribe((res) => {
+     if(res){
+        this.takeCharacters();
+        this.takeComics();
+     }
+    });
   }
 
   navigateToHome() {
@@ -47,12 +54,14 @@ export class HeaderComponent implements OnInit {
   }
 
   takeCharacters() {
+
     this.charService.getCharacterForHeader().subscribe((res) => {
       this.characters = res.data.results;
     });
   }
 
   takeComics() {
+
     this.comService.getComics().subscribe((res) => {
       this.comics = res.data.results;
     });
