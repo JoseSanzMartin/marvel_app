@@ -29,9 +29,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
           console.error(`Error: ${error.error.message}`);
         } else {
           console.error(`Error ${error.status}: ${error.message}`);
-          if (error.status === 404) {
-            return EMPTY as Observable<HttpEvent<any>>;
-          }
         }
         this.router.navigate(["/home"], { replaceUrl: true });
         this.showSnackbar(errorMessage);
