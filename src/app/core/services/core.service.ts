@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map, tap } from "rxjs";
+import { map } from "rxjs";
 import { environment } from "src/environments/environment.development";
 import { CharacterApiResponse } from "../models/DTOCharacterAPIResponse";
 import { Router } from "@angular/router";
