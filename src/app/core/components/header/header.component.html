@@ -44,7 +44,7 @@
     </div>
 
     <svg
-      (click)="navigateToHome()"
+      (click)="navigateTo('home')"
       class="pl-0 ml-1 md:ml-5 md:pl-8"
       width="130"
       height="55"
@@ -86,13 +86,20 @@
         <span class="hidden md:block right-text-under">SUBSCRIBE</span>
       </div>
       <span class="line"></span>
-      <button mat-button class="button-search">
-        <mat-icon class="icon-size px-0 mx-0">search</mat-icon>
+      <button
+        mat-button
+        class="button-search"
+        (click)="navigateTo('characters')"
+      >
+        <mat-icon class="icon-size px-0 mx-0 cursor-pointer">search</mat-icon>
       </button>
     </div>
   </mat-toolbar>
 
-  <div class="sub-menu flex flex-row align-items-center justify-content-center"  *ngIf="isLoggedIn()">
+  <div
+    class="sub-menu flex flex-row align-items-center justify-content-center"
+    *ngIf="isLoggedIn()"
+  >
     <div
       class="flex flex-row align-items-center menu-names"
       *ngFor="let b of buttons; let i = index"
@@ -107,7 +114,7 @@
     </div>
   </div>
 
-  <div class="container-top"  *ngIf="isLoggedIn()">
+  <div class="container-top" *ngIf="isLoggedIn()">
     <div
       class="container-custom pb-3"
       *ngIf="showComicContainer"
@@ -121,16 +128,14 @@
       </div>
       <h3 class="title text-center pt-4">LATEST COMICS</h3>
       <div
-        class="div"
-        class="flex flex-row justify-content-center pb-4 pl-0 ml-0 pr-2"
+        class="flex pb-4  pr-2 cards-container"
       >
-        <div
-          *ngFor="let comic of comics.slice(0, 6)"
-          class="flex flex-column pt-0"
+        <div *ngFor="let comic of comics.slice(0, 6)"
+          class="flex flex-column pt-0 "
         >
           <app-comic-card
             [comic]="comic"
-            class="cursor-pointer px-2"
+            class="cursor-pointer px-2 card-comic"
           ></app-comic-card>
         </div>
       </div>

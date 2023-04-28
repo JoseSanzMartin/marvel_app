@@ -38,15 +38,15 @@ export class HeaderComponent implements OnInit {
     this.coreService.callHeaderPhotos.pipe(
       delay(200)
     ).subscribe((res) => {
-     if(res){
+     if(res || sessionStorage.getItem('apikey') ){
         this.takeCharacters();
         this.takeComics();
      }
     });
   }
 
-  navigateToHome() {
-    this.router.navigate(["/home"]);
+  navigateTo(url : string) {
+    this.router.navigate([`/${url}`]);
   }
 
   goTo(url: string) {

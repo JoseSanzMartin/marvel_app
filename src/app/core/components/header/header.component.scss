@@ -20,6 +20,29 @@
   }
 }
 
+.cards-container{
+  overflow-y: hidden;
+  max-height: 200%;
+  justify-content: center;
+  display: flex;
+  padding: auto 20px;
+
+  &::-webkit-scrollbar {
+    display: none;
+    }
+
+  @media(max-width: 1300px){
+    justify-content: start;
+    overflow-x: scroll;
+  }
+}
+
+
+
+.card-comic{
+  max-width: 220px;
+}
+
 .cont-right {
   @include b-left(#393939, 2px);
   @include b-right(#393939, 2px);
