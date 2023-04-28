@@ -34,7 +34,7 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should validate public key minlength', () => {
+  it('should validate public key', () => {
     const publicControl = component.loginForm.get('public');
 
     if (publicControl) {
@@ -46,7 +46,7 @@ describe('LoginComponent', () => {
     }
   });
 
-  it('should validate private key minlength', () => {
+  it('should validate private key', () => {
     const privateControl = component.loginForm.get('private');
 
     if (privateControl) {

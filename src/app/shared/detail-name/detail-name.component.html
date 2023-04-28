@@ -5,16 +5,16 @@
   <h1 class="jj" *ngIf="character">
     <span>{{  character | textDetail : "name"  }}</span>
   </h1>
-  <h1 class="jj" *ngIf="comic">
+  <h1 class="jj mb-2" *ngIf="comic">
     <span>{{ comic | textDetail : 'title' }}</span>
   </h1>
-  <h1 class="jj" *ngIf="character">
+  <h1 class="jj mb-2" *ngIf="character">
     <span>{{  character | textDetail : "name"  }}</span>
   </h1>
 <div *ngIf="comic">
-  <p class="text px-2">{{ comic  | textDetail : "description"}}</p>
+  <p class="text px-3">{{ comic  | textDetail : "description"}}</p>
 </div>
 <div *ngIf="character">
-  <p class="text px-2">{{ character  | textDetail : "description"}}</p>
+  <p class="text px-3 mb-4">{{ character  | textDetail : "description"}}</p>
 </div>
 </div>
